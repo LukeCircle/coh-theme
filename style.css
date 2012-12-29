@@ -1,0 +1,828 @@
+/*
+Theme Name:         Circle of Hope
+Description:        This is a customization of the Reverie theme which is built on Zurb's Foundation.
+Version:            1.0.0
+Author:             Joel Smith
+Author URI:         http://birdsumner.com/
+
+License:            MIT License
+License URI:        http://www.opensource.org/licenses/mit-license.php
+*/
+
+/* --------------------------------------------------
+   Table of Contents
+-----------------------------------------------------
+  --> General Styles
+    :: Header
+    :: Mobile Menu
+    :: Content
+    :: Primary Content
+    :: Sidebar
+  --> At a Glance (front-page.php)
+    ::Middle of Front-Page
+  --> Search Form and Results Page
+  --> Convictions Page
+  --> Comments
+    :: Post & Comment Navigation
+    :: Post Comments
+  --> Who We Are
+  --> Congregation Pages
+  --> Connect With Us
+  --> Go Deeper
+  --> Category Pages
+  --> Cells Page
+  --> 100 Stories Pages
+  --> Team Pages
+  --> Partner Pages
+  --> Look and Listen
+  --> Links Scroller
+  --> Blog Posts
+  --> Staff Page
+  --> Events
+  --> Footer
+  --> Mobile Menu
+  --> Search Forms
+  --> Media Queries
+  --> Dated Updates
+
+/*  --------------------------
+   Styles Pulled from Original Circle of Hope Build
+    ----------------------- */
+  body {background: url('images/bg.png'); font-family: Merriweather, serif; font-size: 14px !important; line-height: 1.2em !important; }
+  a:active, input.button:active { outline: 0; position: relative; top: 1px; }
+
+	p {padding: 10px 0; line-height: 1.5rem;}
+
+  a {color:#ad5251;}
+
+	/*h1, h2, h3, h4, h5, h6 { text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }*/
+	h1, a h1 {color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 30px; text-decoration: none !important; line-height: 40px;}
+	a h1 {text-decoration: none;}
+	h2, h2 a, a h2 {color: #ad5251; padding: 20px 0 5px 0; font-size: 32px; line-height: 36px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none;}
+	h3, h3 a, a h3 { padding: 15px 0 5px; font-size: 24px;line-height: 28px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none;}
+	h4, h4 a, a h4 {padding: 10px 0 5px; font-size: 18px; line-height: 20px; color: #906c3a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-decoration: none;}
+	h5, h5 a, a h5 {padding: 10px 0 5px; font-size: 18px; line-height: 20px; color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 300; text-decoration: none;}
+
+	.accordionButton {cursor: pointer;}
+/* =============================================================================
+   Header
+   ========================================================================== */
+	.container[role="header"] {background-image: url('images/headerbg2.jpg'); background-size: cover;}
+	#banner { position: relative; margin: 0 auto 10px; z-index: 800; overflow: visible;}
+	#banner .container { padding: 0; }
+
+	.logo img{display: block; width: 200px;  margin: 5px auto -10px auto; padding: 0; z-index:50; }
+
+  ul.nav-bar {background: none;}
+  ul.nav-bar > li { font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; font-weight: 700; background: rgba(47, 55, 58, .5); border: none; box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important;}
+  ul.nav-bar > li:last-child {border-right: none ;}
+  ul.nav-bar > li:hover {background: rgb(47, 55, 58);}
+  ul.nav-bar > li a {color: #af9c71; font-size: 20px !important; padding: 10px 20px;}
+  ul.nav-bar li:hover > ul.sub-menu {display: inline-block;}
+  ul.sub-menu {display:none; position: absolute; z-index: 5;}
+  ul.sub-menu li > ul.sub-menu {display: none;}
+  ul.nav-bar > li.has-flyout > a:first-child::after {border-color: rgba(175, 156, 113, .5) transparent transparent transparent;}
+  ul.flyout li, .nav-bar li ul li {border-left: 3px solid rgb(47, 55, 58);;}
+      /* Legacy Navigation Code */
+    	.nav-main {height: auto;}
+    	.nav-main ul {font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; position: relative;  font-weight: 700; list-style: none; margin: 0 auto 16px auto; padding: 0; text-align: left; float: left; width: 100%;}
+    	.nav-main ul li { float: right; margin: 0; *zoom: 1; }
+    	.nav-main ul li a {text-decoration: none; display: block; font-size: 24px; padding: 10px 16px; color: #af9c71; margin: 0; text-shadow: 1px 1px 0 #2f373a;}
+    	.nav-main ul li a:hover,
+    	.nav-main ul li.current-menu-item > a,
+    	.nav-main ul li.current-menu-parent > a,
+    	.nav-main ul li.current-menu-ancestor > a,
+    	.nav-main ul li:hover > a {color: #C9BFB0; }
+
+
+    	.nav-main ul ul { position: absolute !important; display: block; visibility: hidden; top: 35px; left: 0; right: 0; margin: 0; height: 40px; width: 100%; /*background: #222535;*/ padding: 5px; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; opacity: 0; -webkit-transition: visibility linear 0.1s,opacity 0.1s linear;}
+    	.nav-main ul ul li { float: right; }
+    	.nav-main ul ul li a {font-size: 14px; text-shadow: 1px 1px 0 #2f373a; padding: 4px 16px; width: 100%; /*account for the width of ul#nav-main ul and the padding on the anchor */ display: inline-block;}
+    	.nav-main ul ul li a:hover,
+    	.nav-main ul ul li.current-menu-item > a,
+    	.nav-main ul ul li.current-menu-parent > a,
+    	.nav-main ul ul li.current-menu-ancestor > a,
+    	.nav-main ul ul li:hover > a {color: #C9BFB0;}
+
+    	nav.nav-main ul ul ul.sub-menu { position: relative; background: #fff; z-index: 3000; width: 300px;}
+    	.nav-main ul li:hover > ul { visibility: visible; opacity: 1;   transition-delay:0s;
+    	}
+
+	#nav-utility { position: absolute; top: 0; right: 0; }
+	#nav-utility ul { list-style: none; margin: 0; padding: 0; float: right; width: auto; position: relative; }
+	#nav-utility ul li { float: left; position: relative; }
+	#nav-utility ul li a { display: block; float: left; padding: 2px 6px; }
+
+	.tn-title li{display: none;}
+	#breadcrumb-menu {position: relative; z-index: 2; padding: 5px 0; font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; font-weight: 700; }
+	#breadcrumb-menu .tn-title li.current-menu-item,
+	#breadcrumb-menu .tn-title li.current-menu-ancestor{display: inline; list-style: none; margin: 0; padding: 5px; color: #C9BFB0;}
+
+	#breadcrumb-menu .tn-title ul li {background: #2F373A; background: rgba(92, 92, 92, 0.7); padding-left: 10px !important;}
+	#breadcrumb-menu .tn-title ul ul li {background: none;}
+	#breadcrumb-menu .tn-title ul, #breadcrumb-menu .tn-title ul ul.sub-menu {display: inline; padding:0 5px;}
+	#breadcrumb-menu .tn-title li.current-menu-item a,
+	#breadcrumb-menu .tn-title li.current-menu-ancestor a{font-weight: 700; text-decoration:none; color: #C9BFB0;}
+	 #breadcrumb-menu .tn-title ul ul.sub-menu:before {content: "\00BB";}
+/* =============================================================================
+  Mobile Menu
+   ========================================================================== */
+	nav#mobileMenu {display: none; width: 110%; margin-left: -5%; text-align: center;}
+
+
+
+/* =============================================================================
+   Main Body Container
+   ========================================================================== */
+  .container {width: 100%;}
+	.container[role="main"] { background-image: url('images/bg2.jpg'), url('images/bg4.jpg');  background-repeat: no-repeat, no-repeat; background-position:  center top, center bottom; /*padding: 10px 0 20px; min-height:685px; margin-top: -30px; position: relative; z-index: 1; */}
+	.content .container { width: auto; position: relative; padding: 0; }
+	.content.shorter {min-height: 200px;}
+
+
+/* =============================================================================
+   Primary Content
+   ========================================================================== */
+
+	#main { position: relative; }
+	#main .container { padding: 0; }
+
+
+
+/* =============================================================================
+   Sidebar
+   ========================================================================== */
+
+	#sidebar { position: relative; background: #222535; padding: 50px;}
+	#sidebar .container { width: auto; padding: 0; }
+	#sidebar .widget { clear: both; margin-bottom: 1.5em; }
+	#sidebar .widget .gform_wrapper ul { padding: 0; list-style-type: none; }
+
+
+
+/* =============================================================================
+   At a Glance
+   ========================================================================== */
+
+	.hentry header { font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	.hentry h1 {font-size: 2.3em; margin-bottom: 20px; text-transform: uppercase; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; text-decoration: none;}
+	.hentry h2:first-child { line-height: 1.2em; margin-bottom: 0;}
+	.hentry h2 a { text-decoration: none; color: #906c3a; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	.hentry time { display: block; position: relative; }
+	.hentry p.byline { }
+
+	h1.entry-title {border-bottom: dotted 1px #2f373a;}
+
+	#featured {margin: 0; height: auto;}
+	#featured img.wp-post-image {display: block; margin: 0px auto; padding: 5% 0 10%;}
+	div#featuredImage {background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2);}
+	#featuredPost {float:left; clear: none;  /*background:#af9c71;*/ height: 100%;}
+	#featuredPost header {margin-bottom: 10px;}
+	#featuredPost h2 a {color: #ad5251;}
+	#featuredPost .hentry time {position: relative; text-align: right; margin-bottom: -26px; color:#2f373a; font-size: 16px;}
+	#featuredPost p{line-height: 22px; text-align: justify; text-justify: newspaper; }
+	#featured p.author {color: #2f373a; font-size: 14px; margin-top: 6px;}
+	#featured p.author a {text-decoration: none; color: #2f373a;}
+	#featured h4 {color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; line-height: 40px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 30px; }
+	#featured a.more {background: #AD5251; padding: 10px; color: white; text-decoration: none; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+
+
+	#more {padding: 30px 0px 0 0px; }
+	.morePost {float: left;clear:none; display: block; position: relative; overflow: hidden; padding: 7px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); min-height: 220px;}
+	.morePost h2 {font-size: 14px; line-height: 20px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #2f373a; text-align: center;text-decoration: none; text-transform: uppercase;}
+	#more  a {text-decoration: none;}
+	#more img {display: block; margin: 0 auto;}
+
+			/*Old More Posts
+			.morePost {float: left;clear:none; margin: auto 0; display: block; position: relative; overflow: hidden; }
+			.morePost h2{height: 250px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; text-transform: uppercase; text-decoration: none; color: #fff; position: absolute; top: -30%; left: 0; background: #2f373a; padding: 10px; opacity: 0; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease;}
+			.morePost h2:hover {}
+			.morePost:hover h2 {opacity: .75; top:0;}
+			.morePost a {text-decoration: none;}
+			*/
+	#more div.morePost h2.readMore {font-size: 1.5em; line-height: 1em; margin-top: 10%;}
+	#more div.last {background-image:  url(../img/morePosts.png); background-position: center 70%; background-repeat:  no-repeat;}
+
+	h3.more {float: left; width: 155px; padding: 0 0 12px 0;margin-right: 10px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 50px; text-transform: uppercase; color: #ad5251; line-height: 45px; text-align: right; border-bottom: 10px solid #ad5251; border-top: 10px solid #ad5251;}
+	h3.mobileMore {display: none;}
+
+	#featured p.author a {text-decoration: none; color: #2f373a;}
+	p.read-more {float: right; padding: 10px; font-weight: normal; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; font-weight: 700;}
+	p.read-more a {text-decoration: none; color: #ad5251;}
+	p.read-more a:hover {text-decoration: underline;}
+
+	.single .entry-content {padding: 0; text-align: justify; text-justify: newspaper;}
+	.single header {font-size: 16px; margin-bottom: 30px;}
+	.single header a {text-decoration: none;}
+	.single header p.author,  {float:right; clear: left; margin-top: -20px; font-size: inherit; line-height: 20px;}
+	.single  img.wp-post-image {display: block; margin: 0 auto;}
+	.singleSidebar .morePost {margin: 15px 15px 15px 18px;}
+	h3.related {color: #ad5251; margin: 20px 0 5px 0; font-size: 32px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-align:center;}
+
+
+
+/* =============================================================================
+   Middle of Front Page Section
+   ========================================================================== */
+	.container[role="middle"] {background: rgba(92, 92, 92, 0.2); padding: 20px 0;}
+	div.midbg div.row {border-top: 1px dotted #ccc;}
+	div.midbg h2 {text-align: center; padding: 0; margin: 5px 0;}
+
+	section.event {padding:10px 0;}
+
+	div.tweets h3 {text-align: center; display: block; margin: 0 auto; text-transform: lowercase; width: 200px; padding-left: 10px; background: url(../img/twitter.png) left 65% no-repeat;}
+	div.tweets h3 a {text-decoration: none; color: #2f373a; padding-left: 15px;}
+	ul.tweetList {padding-left: 10%;}
+	ul.tweetList li {list-style: none; font-size: 0.9em;}
+	ul.tweetList li font {margin-left: 25%; font-style: italic;}
+	li.tweetPage {padding: 25px; color:#fff !important; text-align: left;}
+	li.tweetPage a {color: #ad5251; }
+	li.tweetpage a.tweetimg {float:right;}
+	li.tweetPage a.tweetimg:first-child {float: right; clear: both;}
+	.tweetProfile {padding: 60px 25px;}
+	.tweetProfile a {font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 18px;}
+
+	#proverbs {padding: 10px 0 0px; margin: 20px 0; text-align: center; }
+	.proverbsPost h2 {font-weight: 300; padding: 5px; text-transform: none !important; font-size: 18px !important; font-family: Merriweather, Cambria, Georgia, serif;}
+	.proverbsPost a { text-decoration: none; color: #906c3a; }
+	.fromProverbs { color: #906c3a; font-size: 18px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+
+	section.dailyPrayerBox { margin: 0 12.5% 25px; height: auto;}
+	section.dailyPrayerBox h3 {text-align: center; margin-bottom: 0;}
+	section.dailyPrayerBox #dailyprayer {position: relative; float: left;}
+	#dailyprayer ul {margin: 0; min-height: 100px;}
+
+
+	h3.pmtitle {text-align:center;}
+	section.congregationList {font-size: .9em; border-right: 1px dotted #ccc; margin-top: 20px; margin-bottom: 30px;}
+	section.congregationList.last {border-right: none;}
+/* =============================================================================
+	Search Form and Page
+   ========================================================================== */
+   div.searchPage {padding-top: 30px !important;}
+
+   section.search {float: right;}
+   section.search input::-webkit-input-placeholder, section.search input:-moz-placeholder {color: red;}
+   section.search input#s {background: rgb(92, 92, 92); border: 2px solid #6d6d6d;}
+   input.button {background: #2F373A; padding:4px 9px 6px ; color: #AF9C71; font-weight: 700; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; border: none; margin: 2px 0;}
+   input.button:hover, input.button:focus  {background: #334247;}
+
+
+
+
+/* =============================================================================
+	Convictions Page
+   ========================================================================== */
+	article.convictionsPost {display: block; line-height:30px; text-align: center; padding: 0; margin: 5px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
+	a article.convictionsPost  h3  {color: #2f373a;}
+
+/* =============================================================================
+   Post & Comment Navigation (Deprecated due to using Disqus)
+   ========================================================================== */
+
+	#post-nav { clear: both; *display: inline-block; }
+	#post-nav:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+	#post-nav .post-previous { float: left; width: 50%; }
+	#post-nav .post-next { float: right; width: 50%; text-align: right; }
+	#post-nav .post-next a { float: right; }
+
+	#comments-nav { clear: both; margin: 0 0 1.5em 0; *display: inline-block; }
+	#comments-nav:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+	#comments-nav .comments-previous { float: left; width: 50%; }
+	#comments-nav .comments-next { float: right; width: 50%; text-align: right; }
+	#comments-nav .comments-next a { float: right; }
+
+
+
+/* =============================================================================
+   Post Comments (Deprecated due to using Disqus)
+   ========================================================================== */
+
+	section#respond {margin-top: 30px;}
+	section#respond h3 {margin: 5px auto 10px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+	ol.commentlist img.avatar { float: left; margin-right: 10px; }
+	ol.commentlist time { display: block; font-size: 1em; margin-bottom: 0.5em; position: relative; }
+	ol.commentlist .comment-reply-link { display: block; margin-bottom: 1.5em; }
+	#commentform { *display: inline-block; }
+	#commentform p { margin-bottom: 1em; }
+	#commentform label { display: block; }
+	#commentform textarea { display: block; }
+	#commentform input.button { margin-top: 0.5em; }
+	#commentform:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+
+
+/* =============================================================================
+   Who We Are
+   ========================================================================== */
+   	div.whoWeArebg {background: rgba(92, 92, 92, 0.2); margin: 0px -25px 30px; padding: 20px 0;}
+	div.whoWeArebg h2 {text-align: center; padding: 0; margin: 5px 0; text-decoration: none;}
+	div.lastwhoWeAre {margin: 30px -25px 0;}
+
+	div.whoWeArebg p {line-height: .9em; padding: 20px; min-height: 25px;}
+	div.whoWeArebg a {text-decoration: none;}
+
+	div.aboutSection {padding: 5px 10px 15px; text-align: center; margin-top: 0px; "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; margin-bottom: -20px;}
+	div.aboutSection h2 {font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto;}
+	div.aboutSection h3, .aboutSection ul li, .tweetProfile a {color: #ad5251; margin: 20px 0 5px 0; font-size: 32px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase;}
+	.aboutSection ul li {text-transform: none; font-weight: 300;}
+	.aboutSection ul li p.hide {visibility: hidden;}
+	.aboutSection ul li:target section.hide {visibility: visible;}
+	div.aboutSection ul li {font-size: 24px; list-style: none;}
+	div.aboutSection p, div.aboutSection ul.proverbs li {font-size: 20px; display: block; line-height:30px; text-align: center; padding: 10px; margin: 10px inherit;  background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
+	div.aboutSection ul {margin-left: -35px;}
+	div.aboutOdd {background: #2f373a; color: #c9bfb0; border: 1px solid #556369; margin: 0; margin-left: -50px !important; margin-right: -50px !important; padding: 50px 0;}
+	div.aboutOdd h2 {color: #c9bfb0; text-shadow: 1px 1px 1px #556369; border-bottom: 1px dotted #c9bfb0;}
+	div.aboutOdd p {margin: 7.5% inherit;}
+	div.aboutOdd p a {display: none;}
+
+	div.aboutSection ul.proverbs li {display: inline-block; float: left; clear: none; margin: 10px; padding: 15px; text-align: center;}
+
+	.last_custom {margin-right: -1px;}
+	.mapp-container {text-shadow: none; border:10px solid #fff; }
+	div.more a.more {background: #AD5251; padding: 10px; color: white; text-decoration: none; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+
+/* =============================================================================
+   Congregation Pages
+   ========================================================================== */
+
+	article.congregationPost {padding: 20px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 1.4%;   }
+	article.congregationPost img {display: block; margin: 0 auto;}
+	article.congregationPost h2 {color: #ad5251;  text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; line-height: 30px; text-decoration: none; margin-bottom: 10px;}
+	a.congregationLink {text-decoration: none;}
+	article.congregation h1.congregationTitle a  {color:#2F373A; text-decoration: none;}
+
+
+	div.congregation h2 {font-size: 36px; text-align: center;}
+	div.congregation nav {text-align: center; margin-left: auto; margin-right: auto; display: block; padding: 10px 0; background: rgb(256, 256, 256); background: rgba(256, 256, 256, .7);}
+	nav.congregationNav ul li {display: inline; font-size: 32px; text-transform: uppercase; padding: 5px 25px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold;}
+	nav.congregationNav ul li a {text-decoration: none; color: #2f373a;}
+	nav.congregationNav ul li a:hover {color: #ad5251}
+
+	#directions, #about {background: #2F373A; padding: 25px 20px;}
+	#directions h2, #about h2 {color: #c9bfb0; text-transform: uppercase; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; border-bottom: 1px dotted #c9bfb0; width: 75%; margin-left: auto; margin-right: auto; text-align: center;}
+	#directions ul li {list-style: none; font-size: 32px; color: #c9bfb0;}
+	#directions ul li:first-child {font-weight: bold; font-size: 36px; color: #ad5251; text-transform: uppercase; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif;}
+	#directions ul li a {color: #c9bfb0; text-decoration: none; border-bottom: dotted 1px #c9bfb0; padding-bottom: 0;}
+
+	#events {margin: 100px 0;}
+
+	#about {min-height: 300px; color: #fff;}
+	#about img {border: 5px solid #fff;}
+
+	.rssBody ul li h4  {display: none;}
+	.rssBody ul,  {margin: 0 -30px 0 0; padding: 0;}
+	.rssBody ul li {height: 20px; list-style:none; padding: 10px;}
+	li.rssRow.odd {background: #af9c71;}
+
+	header.congregation {margin: 30px 0 0;}
+	header.congregation h2 {font-size: 48px;}
+
+	section.congregationText {color: #2F373A; width: 75%; padding-bottom: 20px; margin: 15px auto; text-align: justify; font-size: 17px; line-height: 24px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.7); /*font-style: italic;*/}
+	section.congregationText p {padding: 20px 60px 0;}
+	section.congregationText a {color: #ad5251;}
+
+	div.row.darker {background: rgba(92, 92, 92, 0.2); padding: 20px;}
+
+
+
+/* =============================================================================
+   Connect With Us
+   ========================================================================== */
+   	div.connectbg {background: rgba(92, 92, 92, 0.2); margin: 0px -25px 30px; padding: 20px 0;}
+	div.connectbg h2, h2.connectTitle, div.deeperDiv h2 {text-align: center; padding: 0; margin: 10px 0; text-decoration: none;}
+	div.connectbg h3 {text-align:center;}
+	div.connectbg a {text-decoration: none;}
+	div.deeperLast { margin: 0px -25px 0px !important;}
+
+	div.pmList h3 {text-align: center;}
+	div.pmList h4 {margin: 0; padding: 0;}
+	div.pmList section { display: block; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); padding: 10px; margin: 14px 0; text-align: center;}
+
+/* =============================================================================
+   Deeper
+   ========================================================================== */
+   	div.deeperbg {background: rgba(92, 92, 92, 0.2); margin: 0px -25px 30px; padding: 20px 0;}
+	div.deeperbg h2, h2.deeperTitle {text-align: center; padding: 0; margin: 10px 0; text-decoration: none;}
+	div.deeperbg h3 {text-align:center;}
+	div.deeperbg a {text-decoration: none;}
+
+	div.deeperDiv {margin-top: 50px; position: relative; clear: both; float: left;}
+
+	#dailyprayer {position: relative; float: left;}
+	#dailyprayer .rssBody ul li h4 {display: block;}
+	#dailyprayer .rssBody ul li.odd {background: none;}
+	a.dailyPrayer p {background: #AD5251; padding:10px; max-width: 80px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; float: right; clear: left; margin: 0;}
+	a.dailyPrayer:hover p {background: #964746;}
+
+
+/* =============================================================================
+   Category Pages
+   ========================================================================== */
+	h1.archiveHeader {font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: bold;font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; }
+
+	article.categoryPost {padding: 20px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px; min-height: 350px; }
+	article.categoryPost img {display: block; margin: 0 auto;}
+	article.categoryPost h2 {text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; line-height: 30px; text-decoration: none; margin-bottom: 10px;}
+	article.categoryPost header p.author {padding: 0; float:right; clear: left;  font-size: inherit; line-height: 20px;}
+	article.categoryPost header {margin-bottom: 5px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; margin: 10px;}
+	article.categoryPost p {padding: 10px; color: #2f373a }
+	a article.categoryPost {text-decoration: none; color: #2f373a }
+
+	article.categoryPost div.more p a {background: #AD5251; padding:10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+    article.categoryPost div.more p a:hover {background: #964746;}
+
+
+/* =============================================================================
+   Cells Page
+   ========================================================================== */
+	h2.cellHeader, h2.neighborhoods {display: block; line-height:30px; padding: 10px 0; text-align: center; margin: 10px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); color: #2f373a;}
+	h2.neighborhoods { text-align: center;}
+	nav.cellNav {text-align: center; margin-left: auto; margin-right: auto; display: block; padding: 10px 0; background: rgb(256, 256, 256); background: rgba(256, 256, 256, .7);}
+	nav.cellNav ul li {display: inline; font-size: 24px; text-transform: uppercase; margin: 5px 10px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; border-bottom: 1px dotted;}
+	nav.cellNav ul li a {text-decoration: none; color: #2f373a;}
+	nav.cellNav ul li a:hover {color: #ad5251}
+
+	h2.neighborhood {text-align:center;}
+	section.cellText { color: #2F373A;padding: 20px; margin: 15px auto 0; text-align: justify; font-size: 16px; line-height: 24px; *background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.7); }
+	section.cellText p {padding-bottom: 10px;}
+
+	/*Special Cell Responsive Columns*/
+	.cellDay {width: 20%; margin: .1em; padding: .1em; position: relative; float:left;}
+	.cellLeader {width: 30%; margin: .1em; padding: .1em; position: relative; float:left;}
+	.cellContact {width: 45%; margin: .1em; padding: .1em; position: relative; float:left; clear: none;}
+	.cellDay ul, .cellLeader ul, .cellContact ul {margin: 0; padding:0;}
+	.cellDay ul li, .cellLeader ul li, .cellContact ul li {min-height: 50px;}
+
+/* =============================================================================
+   100 Stories Pages
+   ========================================================================== */
+
+	article.storiesPost {padding: 20px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px;  }
+	article.storiesPost img {display: block; margin: 0 auto;}
+	article.storiesPost h2 {color: #2f373a;  text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; line-height: 30px; text-decoration: none; margin-bottom: 10px; padding: 0 20px;}
+	a.storiesLink {text-decoration: none;}
+
+	section.storiesText {color: #2F373A; width: 75%; padding-bottom: 20px; margin: 15px auto; text-align: justify; font-size: 17px; line-height: 24px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.7); }
+	section.storiesText p {padding: 20px 60px 0;}
+
+
+/* =============================================================================
+   Team Pages
+   ========================================================================== */
+
+	/*Archive Page --> This is where the teams are listed out*/
+	h1.teamTitle {font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; }
+	section.teamText {color: #2F373A; padding-bottom: 20px; margin: 15px auto; text-align: justify; font-size: 17px; line-height: 24px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.7);}
+	section.teamText p {padding: 10px 60px;}
+	section.teamText a {color: #ad5251;}
+	article.teamPage {padding: 20px 0; min-height: 440px; margin-bottom: 20px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2);}
+	article.teamPage img {display: block; margin: 0 auto;}
+	a h3.teamName {color: #ad5251; text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; text-decoration: none;}
+	a.teamLink {text-decoration: none; margin-top: 20px;}
+
+
+	/*Individual Pages --> This is the actual team page*/
+	article.team_page header.team h1 {margin-bottom: 0px;}
+	article.team_page header h2 a {color: #ad5251; font-size:2.9em; line-height: 1em !important; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase;margin-top: 0; }
+		div.searchPage article.team_page header h2 a{text-decoration: none; color: #906C3A; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1em;}
+	header.team {margin-top: 30px;}
+	header.team h4 {text-align: center;}
+	article.team_page #about {background: none;}
+	article.team_page #about h2 {font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-align: center; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto;}
+	#lifestream2 ul li.lifestream-facebook_page {list-style: none; padding: 0px 0px 0px 30px; background: url(../img/facebook.png);background-position: left center;background-repeat: no-repeat;}
+	#lifestream2 ul li.lifestream-twitter {list-style: none; padding: 0px 0px 0px 30px; background: url(../img/twitter2.png);background-position: left center;background-repeat: no-repeat;}
+	#lifestream2 ul li {margin-bottom: 15px;}
+	#lifestream2 ul {margin: 0; padding: 0; font-size: .9em;line-height: 24px;}
+
+	div.spacer {height: 25px;}
+
+
+/* =============================================================================
+   Partner Pages
+   ========================================================================== */
+
+	article.partnerPage {padding: 20px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px;  }
+	article.partnerPage img {display: block; margin: 0 auto;}
+	article.partnerPage h2 {color: #ad5251;  text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; line-height: 30px; text-decoration: none; margin-bottom: 10px; padding: 0 20px;}
+	a.partnerLink {text-decoration: none;}
+
+/* =============================================================================
+  Look and Listen Page
+   ========================================================================== */
+	article.lookAndListenPost {padding: 20px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px; text-align: center; cursor: pointer; text-decoration: none;}
+	a.lookAndListenLink{text-decoration: none;}
+	div.simpleOverlay {display:none; padding: 30px; background: #000; z-index: 999;}
+	div.simpleOverlay .close {background-image:url(../img/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:33px; width:33px;}
+
+/* =============================================================================
+   Links Scroller --> This can only be used once per page
+   ========================================================================== */
+	a.linksLink{text-decoration: none; float: left; width: 215px;}
+
+	.scrollable, .scrollable2 {position:relative; overflow:hidden; width: 84%; height:300px;}
+	.scrollable .items, .scrollable2 .items2 {width:20000em; position:absolute;}
+	.items div, .items2 dive {float:left;}
+	.scrollable, .scrollable2 {float:left;}
+	a.browse {background:url(/img/hori_large.png) no-repeat; display:block; width:30px; height:30px; float:left; margin:100px 10px; cursor:pointer; font-size:1px;}
+	a.right { background-position: 0 -30px; clear:right; margin-right: 0px;}
+	a.right:hover { background-position:-30px -30px; }
+	a.right:active { background-position:-60px -30px; }
+	a.left { margin-left: 0px; }
+	a.left:hover  { background-position:-30px 0; }
+	a.left:active { background-position:-60px 0; }
+	a.up:hover { background-position:-30px 0; }
+	a.up:active { background-position:-60px 0; }
+	a.down { background-position: 0 -30px; }
+	a.down:hover { background-position:-30px -30px; }
+	a.down:active { background-position:-60px -30px; }
+
+/* =============================================================================
+   Blog Posts
+   ========================================================================== */
+
+   h1.single_title {margin-top: 30px !important;}
+   h1.page_title {margin-top: 30px !important;}
+
+   div.blogPost { margin-bottom: 50px;}
+   div.blogPost h2.blogTitle {padding-top: 0; margin-top:0;}
+   div.blogPost div.more {float: right; }
+   div.blogPost div.more p a, a.button {background: #AD5251; padding:10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+   div.blogPost div.more p a:hover,  a.button:hover {background: #964746;}
+
+   div.wp-pagenavi {text-align:center;}
+   div.wp-pagenavi span, div.wp-pagenavi a {border: none; background: #2F373A; color: #C9BFB0; font-size: 1.2em;}
+   div.wp-pagenavi span.current {color: #906C3A;}
+
+/* =============================================================================
+   Staff Pages
+   ========================================================================== */
+
+   article.staffPost {margin: 20px 0;}
+   article.staffPost .accordionContent {float:left; clear: left;}
+   div.staffTitle {background: rgb(256, 256, 256); background: rgba(256, 256, 256, 0.2); min-height: 150px; padding-left: 5px;; }
+   div.staffTitle h4 {margin: 0; padding: 0; line-height: 25px;}
+   article.staffPost p {font-size: .9em;}
+
+/* =============================================================================
+   Events Pages
+   ========================================================================== */
+   p.eventsMore {bottom: 20px 0; padding-bottom: 20px; border-bottom: 1px dotted #fff; text-align: center;}
+   p.eventsMore a {background: #AD5251; padding:10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+   p.eventsMore a:hover {background: #964746;}
+
+   div.event-excerpt {font-size: .9em;}
+   div.eventRow div.event h2.event-date {font-size: 1em !important;}
+
+   		#tribe-events-event-meta {font-size: 16px !important;}
+   		#tribe-events-event-meta .gmap, .tribe-events-event-meta-desc .gmap {background: #AD5251 !important; padding:5px!important; color: #fff!important; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif !important; text-transform: uppercase; margin: 5px 0; border-radius: 0 !important; -webkit-border-radius: 0 !important; -moz-border-radius: 0 !important; }
+   		.tribe-events-event-list-meta td {background: none !important;}
+/* =============================================================================
+   Footer
+   ========================================================================== */
+	footer {background: #2f373a;}
+
+	div.footerbg footer {background: #2f373a; color: #c9bfb0;padding: 30px;}
+
+	#content-info { clear: both; position: relative; }
+	#content-info > .container { padding: 0 0 1.5em; }
+
+	#content-info ul.menu { margin: 0 0 24px; padding: 0; list-style-type: none; }
+
+	#content-info p.copy small { font-size: 1em; }
+
+	#content-info ul ul li {display: block; list-style: none; padding: 2px 0;}
+	#content-info ul ul {margin: 5px;}
+	#content-info a  {text-decoration: none; color: #c9bfb0;}
+
+	#content-info #lifestream ul li.lifestream-facebook_page {list-style: none; padding: 0px 0px 0px 30px; background: url(../img/facebook.png);background-position: left center;background-repeat: no-repeat;}
+	#content-info #lifestream ul li.lifestream-twitter {list-style: none; padding: 0px 0px 0px 30px; background: url(../img/twitter2.png);background-position: left center;background-repeat: no-repeat;}
+	#content-info #lifestream ul li {margin-bottom: 15px;}
+	#content-info #lifestream ul {margin: 0; padding: 0; font-size: .9em;line-height: 24px;}
+
+/* =============================================================================
+   Mobile Menu
+   ========================================================================== */
+	nav#mobileMenu ul li.menu-item {font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; width: 90%; margin-left: 25px;}
+	nav#mobileMenu ul, nav#mobileMenu ul li {margin: 5px 0; padding: 0; border: none; list-style: none;}
+	nav#mobileMenu ul a {padding: 10px 15px; background:#2F373A; font-weight: bold; text-transform: uppercase; text-decoration:none; display: block; color: #c9bfb0;}
+	nav#mobileMenu ul ul a {padding: 10px 10px 10px 25px; background: #c9bfb0; color: #2F373A; font-weight: 700; text-transform: capitalize;}
+	nav#mobileMenu ul a.dcjq-parent {padding: 10px 15px; background: #2F373A; color: #c9bfb0; font-weight: bold; text-transform: uppercase;}
+	nav#mobileMenu ul a.dcjq-parent:hover {background: #fff url(skins/images/bg_clean_on.png) repeat-x top center;}
+	nav#mobileMenu ul a:hover {background: #B8AC9C; color: #AD5251;}
+
+/* =============================================================================
+   Search form
+   ========================================================================== */
+
+	#searchform #s { padding: 5px; }
+	.floater { position:fixed; top: 0px; z-index:999;}
+
+/* =============================================================================
+   Admin Customizations
+   ========================================================================== */
+   section.headerLinks {background: #999; width: 100%; position: absolute; height: auto;}
+   section.headerLinks ul li {display: inline;}
+
+
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (max-width: 480px) {
+  /* Style adjustments for viewports 480px and under go here */
+	div.aboutOdd p a {display: block;}
+}
+
+@media only screen and (max-width: 1020px) {
+	#nav-main ul ul {top: 25px;}
+}
+
+@media only screen and (max-width: 768px) {
+  /* Style adjustments for viewports 768px and under go here */
+
+	/*Main Styles*/
+	#content {margin-top: 0px;}
+	.headerbg, div.footerbg {margin:0;}
+	.headerbg {background-image: url('../img/headerMobilebg.jpg'), margin-bottom: 10px;}
+	nav#mobileMenu {display: block;}
+	#nav-main {display: none;}
+	div#breadcrumb-menu {display: none;}
+	#more img {margin: 20px auto;}
+	#more .morePost h2 {font-size: 36px; line-height: 45px;}
+	#lifestream {display: none;}
+	h4.footerTitleRight {display:none;}
+
+	/*At a Glance*/
+	#featured, #more, div.NoMobile {display: none;}
+	div.midbg {margin: 0;}
+	div.row > div.tweets {display: none;}
+	div.tweets ul {display: none;}
+	section.congregationList {text-align:center;}
+	.dailyprayerBox {margin: 0 12.5% 10px;}
+	#dailyprayer ul {min-height: 150px;}
+	h3.mobileMore {display: block;  background: #AD5251; padding:10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; text-align: center; margin: 10px 0;}
+	h3.mobileMore a {color: #fff !important; padding: 10px 50px;}
+
+	div.blogPost h2 {text-align: center;}
+	div.blogPost img {display: block; margin: 0 auto;}
+
+	/*Who We Are*/
+	.staffPost img {display: block; margin: 0 auto 10px;}
+	.staffPost .staffTitle {text-align: center;}
+
+	/*How To Connect*/
+	.mapp-container {display: none;}
+	.cellDay {font-size: .9em; width: 25%}
+	.cellLeader {display: none;}
+	.cellContact {width: 70%; margin: .1em; padding: .1em; position: relative; float:left; clear: none;}
+	#floatingbar {display: none;}
+
+	/*Go Deeper*/
+	.artists {display: none;}
+
+
+}
+@media only screen and (max-width: 950px) {
+  /* Style adjustments for viewports 950px and under go here */
+  #content {background: none;}
+}
+
+
+/* ==|== wordpress generated classes ========================================
+   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+   ========================================================================== */
+
+	.aligncenter { display: block; margin: 0 auto; }
+	.alignleft { margin: 0 1em .75em 0; float: left; }
+	.alignright { margin: 0 0 .75em 1em; float: right; }
+
+	.wp-caption { border: 1px solid #ddd; text-align: center; background: #eee; padding: 14px 10px 6px 10px; margin: 15px 10px; }
+	.wp-caption-text { margin: 0; }
+
+
+
+/* ==|== non-semantic helper classes ======================================== */
+
+	.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+	.ir br { display: none; }
+	.hidden { display: none !important; visibility: hidden; }
+	.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+	.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+	.invisible { visibility: hidden; }
+	.clearfix:before, .clearfix:after { content: ""; display: table; }
+	.clearfix:after { clear: both; }
+	.clearfix { *zoom: 1; }
+
+
+
+/* ==|== print styles ======================================================= */
+
+	@media print {
+	* { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+	a, a:visited { text-decoration: underline; }
+	a[href]:after { content: " (" attr(href) ")"; }
+	abbr[title]:after { content: " (" attr(title) ")"; }
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+	thead { display: table-header-group; }
+	tr, img { page-break-inside: avoid; }
+	img { max-width: 100% !important; }
+	@page { margin: 0.5cm; }
+	p, h2, h3 { orphans: 3; widows: 3; }
+	h2, h3 { page-break-after: avoid; }
+	}
+
+
+/* =============================================================================
+   Changes added on 10.18.12 & 10.25.12
+   ========================================================================== */
+
+
+   /* =============================================================================
+   Cells Customizations
+   ========================================================================== */
+   ul.cell_list {
+   	padding-left: 0;
+   }
+   ul.cell_list li {
+   		list-style: none;
+   		background: rgba(144, 108, 58, .2);
+   		padding: 10px 20px;
+   		margin: 10px 0;
+   }
+   ul.cell_list li ul.cell-list li {
+	list-style: none;
+   	background: none;
+   	display: inline;
+   	padding: 5px 10px;
+   	border-right: 1px solid white;
+   	border-right: 1px solid rgba(256, 256, 256, .2);
+   }
+   ul.cell_list li ul.cell-list li:last-child {
+   	border-right: none;
+   }
+    /* =============================================================================
+   Single-Page Customizations
+   ========================================================================== */
+   .hentry header {font-weight: bold; margin-bottom: 10px;}
+   .hentry p.byline {padding: 0; margin: 0;}
+
+   /* =============================================================================
+   Comments Customizations
+   ========================================================================== */
+   section#comments {
+	   margin-top: 30px;
+   }
+
+
+   ol.commentlist {list-style:none; padding: 0;}
+   ol.commentlist img.avatar {
+	   width: 60px;
+	   height: auto;
+	   padding: 5px 5px 15px 5px;
+   	   background: white;
+	   background: rgba(256, 256, 256, .2);
+   }
+   li.comment {
+	   float: left;
+	   clear: both;
+   }
+   li.comment header {
+   		margin-bottom: 15px;
+   	}
+   li.comment header cite {
+	   font-style: normal;
+	   font-weight: bold;
+   }
+   section.comment {
+	   background: white;
+	   background: rgba(256, 256, 256, .2);
+	   padding: 10px 0;
+   }
+   section.comment p {
+	   padding: 10px;
+   }
+   ol.commentlist .comment-reply-link {
+	   margin-bottom: 0;
+   }
+   a.comment-reply-link, form#commentform a {
+	   background: #2F373A; float: right; padding:2px 9px; color: #AF9C71; font-weight: 700; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; border: none; margin: 10px 0 0; width: 50px; text-align: center;
+   }
+   form#commentform a {
+	   float: none;
+   }
+  #commentform textarea {
+	   display: block;
+		width: 100%;
+		min-height: 150px;
+		background: rgba(256, 256, 256, .2);
+}
+   }
+   #commentform h3 {
+	   margin-bottom: 0;
+   }
+   #commentform p {
+	   margin-bottom: 0;
+   }
