@@ -1,5 +1,7 @@
-<?
-//The Loop for the Compassion Teams Page
+<?php
+/*************************
+Loop for the Compassion Teams
+*************************/
 ?>
 <?php /* Start loop */ ?>
   <?php //Iitiate count in order to instatiate a new ".row" after ever third item in the loop ?>

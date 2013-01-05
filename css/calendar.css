@@ -1,0 +1,238 @@
+/* PAGE GRID */
+
+.gce-page-grid .gce-calendar .gce-caption{ /* Caption at top of calendar */
+	color:#fff;
+	text-align:center;
+	text-transform: uppercase;
+	font-size: 32px;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.gce-page-grid .gce-calendar{ /* Main calendar table */
+	width:100%;
+	border-collapse:collapse;
+	border:1px solid #444;
+	color:#CCCCCC;
+	font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, sans-serif;
+	background-color: #2F373A;
+}
+
+.gce-page-grid .gce-calendar th{ /* Day headings (S, M etc.) */
+	border:1px solid #4d5b60;
+	text-align:center;
+	width:14.29%;
+	padding:0;
+	font-family: Merriweather, Cambria, Georgia, sans-serif;
+}
+
+.gce-page-grid .gce-calendar td{ /* Day table cells */
+	border:1px solid #4d5b60;
+	text-align:center;
+	height:80px;
+	vertical-align:middle;
+	padding:0;
+	font-weight: bold;
+}
+
+.gce-page-grid .gce-calendar .gce-has-events{ /* Table cells with events */
+	color:#AF9C71;
+	cursor:pointer;
+}
+
+.gce-page-grid .gce-calendar .gce-event-info{ /* Event information */
+	display:none; /* Important! */
+}
+
+.gce-page-grid .gce-calendar .gce-day-number{ /* Day number span */
+	font-size:2em;
+}
+
+.gce-page-grid .gce-calendar .gce-today{ /* Table cell that represents today */
+	background-color:  rgba(201, 215, 251, 0.7); rgb(201, 215, 251);
+	text-shadow: 1px 1px 1px #a9c0f9;
+	color: #fff;
+}
+
+.gce-page-grid .gce-calendar .gce-next,
+.gce-page-grid .gce-calendar .gce-prev{ /* Previous and next month links */
+	cursor:pointer;
+	display:inline-block;
+	width:3%;
+}
+
+.gce-page-grid .gce-calendar .gce-month-title{ /* Month title */
+	display:inline-block;
+	font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; color:#2F373A; width: 75%; margin-left: auto; margin-right: auto; text-align: center; text-decoration: none;
+}
+
+.gce-page-grid .gce-calendar th abbr{ /* Day letter abbreviation */
+	border-bottom:none;
+}
+
+/* PAGE LIST */
+
+.gce-page-list .gce-list p{ /* Each piece of information in the list */
+	margin:0;
+	text-shadow: none;
+}
+
+.gce-page-list .gce-list p span,
+.gce-page-list .gce-list div span{ /* The text displayed before each piece of info, 'Starts:' for example */
+	color:#906C3A;
+}
+
+.gce-page-list .gce-list .gce-list-event{ /* The event title */
+	background-color:#none;
+	font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.gce-page-list .gce-list .gce-list-title{ /* The title (not the same as event title) */
+	color: #906C3A; margin: 20px 0 5px 0; font-size: 22px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase;}
+}
+
+.gce-page-list .gce-list ul{
+	list-style-type:none;
+	margin:0;
+	padding:0 !important;
+
+}
+ul.gce-list {margin: 0; padding: 0;}
+
+ul.gce-list li {
+	list-style: none;
+		line-height: 23px;
+}
+ul.gce-list li ul li { margin: 30px 0;}
+
+ul.gce-list a {color: #ad5251; text-decoration: none; }
+ul.gce-list a:hover {border-bottom: 1px dotted #ad5251;}
+
+
+
+
+/* WIDGET GRID */
+
+.gce-widget-grid .gce-calendar .gce-caption{
+	text-align:center;
+}
+
+.gce-widget-grid .gce-calendar{ /* Main calendar table */
+	width:100%;
+	border:1px solid #CCCCCC;
+	border-collapse:collapse;
+}
+
+.gce-widget-grid .gce-calendar th{ /* Day headings (S, M etc.) */
+	width:14.29%;
+	border:1px solid #CCCCCC;
+	text-align:center;
+}
+
+.gce-widget-grid .gce-calendar td{ /* Day table cells */
+	color:#CCCCCC;
+	width:14.29%;
+	border:1px solid #CCCCCC;
+	text-align:center;
+}
+
+.gce-widget-grid .gce-calendar .gce-has-events{ /* Table cells with events */
+	cursor:pointer;
+	color:#2F373A666;
+}
+
+.gce-widget-grid .gce-calendar .gce-today{ /* Table cell that represents today */
+	background-color: rgb(201, 215, 251); rgba(201, 215, 251, 0.5);
+}
+
+.gce-widget-grid  .gce-calendar .gce-event-info{ /* Event information */
+	display:none; /* Important! */
+}
+
+.gce-widget-grid  .gce-calendar .gce-next,
+.gce-widget-grid  .gce-calendar .gce-prev{ /* Prev and next month links */
+	cursor:pointer;
+	display:inline-block;
+	width:5%;
+}
+
+.gce-widget-grid .gce-calendar .gce-month-title{ /* Month title in caption at top of table */
+	display:inline-block;
+	width:80%;
+}
+
+.gce-widget-grid .gce-calendar th abbr{ /* Day name abbreviations */
+	border-bottom:none;
+}
+
+/* WIDGET LIST */
+
+.gce-widget-list .gce-list p{ /* Each piece of information in the list */
+	margin:0;
+}
+
+.gce-widget-list .gce-list p span,
+.gce-widget-list .gce-list div span{ /* The text displayed before each piece of info, 'Starts:' for example */
+	color:#999999;
+}
+
+.gce-widget-list .gce-list .gce-list-event{ /* The event title */
+	background-color:#DDDDDD;
+}
+
+.gce-widget-list .gce-list .gce-list-title{ /* The title (not the same as event title) */
+	font-weight:bold;
+}
+
+.gce-widget-list .gce-list ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+/* TOOLTIP */
+
+.gce-event-info{ /* Tooltip container */
+	background-color:#FFFFFF;
+	border:1px solid #333333;
+	max-width:300px;
+	text-shadow: none;
+}
+
+.gce-event-info .gce-tooltip-title{ /* 'Events on...' text */
+	margin:5px;
+	font-weight:bold;
+	font-size:16px;
+}
+
+.gce-event-info ul{ /* Events list */
+	padding:0;
+	margin:5px;
+	list-style-type:none;
+}
+
+.gce-event-info ul li{ /* Event list item */
+	margin:10px 0 0 0;
+}
+
+.gce-event-info ul li p{ /* Each piece of information */
+	margin:0;
+}
+
+.gce-event-info ul li p span,
+.gce-event-info ul li div span{ /* The text displayed before each piece of info, 'Starts:' for example */
+	color:#999999;
+}
+
+.gce-event-info .gce-tooltip-event{ /* The event title */
+	background-color:#DDDDDD;
+	font-weight:bold;
+}
+
+
+table.tribe-events-calendar  thead tr th{background-color: #AF9C71;}
+table.tribe-events-calendar div.daynum.tribe-events-event {background: rgba(256, 256, 256, 0.2);}
+.tribe-events-calendar td.tribe-events-present .daynum, .tribe-events-calendar td.tribe-events-present .daynum > a {color: #AD5251;}
+#tribe-events-calendar-header, .tribe-events-calendar, #tribe-events-content .ical, .events-single #content .ical, a.gmap, .tribe-events-event-list-meta td, .tribe-events-nav, #tribe-events-event-meta, span.back, .eventsListWidget .dig-in, .eventsAdvancedListWidget .dig-in, .gcal-add {font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif;}

@@ -1,4 +1,9 @@
 <?php
+/*************************
+Loop for the Cells Page
+*************************/
+?>
+<?php
 //Begin by getting the taxonomy 'cell-locations'
 $terms = get_terms('cell-locations');
 //Order the list of posts by this taxonomy

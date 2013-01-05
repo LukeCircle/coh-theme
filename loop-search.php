@@ -1,9 +1,16 @@
+<?php
+/****************************
+Loop for Search Page
+****************************/
+?>
+
+
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
 <?php if (!have_posts()) : ?>
 	<div class="notice">
 		<p class="bottom"><?php _e('Sorry, no results were found.', 'reverie'); ?></p>
 	</div>
-	<?php get_search_form(); ?>	
+	<?php get_search_form(); ?>
 <?php endif; ?>
 
 <?php /* Start loop */ ?>
@@ -11,7 +18,7 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header>
 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			<?php reverie_entry_meta(); ?>	
+			<?php reverie_entry_meta(); ?>
 		</header>
 		<div class="entry-content">
 			<?php the_content('Continue reading...'); ?>

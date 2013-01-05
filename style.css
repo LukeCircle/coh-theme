@@ -51,7 +51,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   body {background: url('images/bg.png'); font-family: Merriweather, serif; font-size: 14px !important; line-height: 1.2em !important; }
   a:active, input.button:active { outline: 0; position: relative; top: 1px; }
 
-	p {padding: 10px 0; line-height: 1.5rem;}
+	p {padding: 10px 0; line-height: 1.8rem;}
 
   a {color:#ad5251;}
 
@@ -388,13 +388,15 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* =============================================================================
    Connect With Us
    ========================================================================== */
-   	div.connectbg {background: rgba(92, 92, 92, 0.2); margin: 0px -25px 30px; padding: 20px 0;}
+  div.connectbg {background: rgba(92, 92, 92, 0.2); margin: 0px 0 30px; padding: 20px 0;}
 	div.connectbg h2, h2.connectTitle, div.deeperDiv h2 {text-align: center; padding: 0; margin: 10px 0; text-decoration: none;}
 	div.connectbg h3 {text-align:center;}
 	div.connectbg a {text-decoration: none;}
 	div.deeperLast { margin: 0px -25px 0px !important;}
 
-	div.pmList h3 {text-align: center;}
+  div.map {overflow: hidden;}
+
+	div.pmList h3 {text-align: center; padding-top: 0; margin-top: 0;}
 	div.pmList h4 {margin: 0; padding: 0;}
 	div.pmList section { display: block; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); padding: 10px; margin: 14px 0; text-align: center;}
 

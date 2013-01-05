@@ -1,5 +1,7 @@
-<?
-//The Loop for the Big C or "World Wide Connections Page"
+<?php
+/*****************************************************
+The Loop for the Big C or "World Wide Connections Page"
+*****************************************************/
 ?>
 <?php // Start loop  ?>
   <?php //Iitiate count in order to add a class to ever fourth item in the loop ?>

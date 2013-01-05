@@ -116,6 +116,20 @@ jQuery(document).ready(function ($) {
 
   // Adding all my own fun stuff.
 
+  //Scrollable Stuff
+  $(function() {
+    // initialize scrollable
+    $(".scrollable").scrollable();
+  });
+
+  //RSS call for
+  $('#dailyprayer').rssfeed('http://fulltextrssfeed.com/cohdailyprayer2012.wordpress.com/feed', {
+     limit: 1,
+      header: false,
+      date: false,
+      linktarget: '_blank'
+  });
+
   //Accordion Button Action
   $('div.accordionButton').click(function() {
 

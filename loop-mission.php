@@ -1,5 +1,7 @@
-<?
-//The Loop for the Mission Teams Page
+<?php
+/*************************
+Loop for Mission Teams
+*************************/
 ?>
 <?php /* Start loop */ ?>
   <?php //Iitiate count in order to instatiate a new ".row" after ever third item in the loop ?>

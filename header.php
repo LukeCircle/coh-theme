@@ -46,26 +46,31 @@
 		<div class="row">
 			<header class="twelve columns" role="banner">
 				<!-- Main Logo Header -->
-				<div class="logo">
+				<div class="logo row">
           <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png">
         </div>
 
-        <!-- Navigation -->
-				<nav role="navigation">
-					<?php
-					    wp_nav_menu( array(
-  						'theme_location' => 'primary_navigation',
-  						'container' =>false,
-  						'menu_class' => '',
-  						'echo' => true,
-  						'before' => '',
-  						'after' => '',
-  						'link_before' => '',
-  						'link_after' => '',
-  						'depth' => 2,
-  						'items_wrap' => '<ul class="nav-bar">%3$s</ul>')
-					); ?>
-				</nav>
+        <div class="row">
+          <!-- Navigation -->
+  				<nav class="eight columns" role="navigation">
+  					<?php
+  					    wp_nav_menu( array(
+    						'theme_location' => 'primary_navigation',
+    						'container' =>false,
+    						'menu_class' => '',
+    						'echo' => true,
+    						'before' => '',
+    						'after' => '',
+    						'link_before' => '',
+    						'link_after' => '',
+    						'depth' => 2,
+    						'items_wrap' => '<ul class="nav-bar">%3$s</ul>')
+  					); ?>
+  				</nav>
+          <div class="four columns">
+            <?php get_search_form(); ?>
+          </div>
+        </div>
 			</header>
 		</div> <!-- End of .row -->
   </div> <!-- End of .container[role=header] -->

@@ -38,6 +38,10 @@ function reverie_css() {
      wp_register_style( 'style',get_template_directory_uri() . '/style.css', false );
      wp_enqueue_style( 'style' );
 
+     wp_register_style( 'calendar',get_template_directory_uri() . '/css/calendar.css', false );
+     wp_enqueue_style( 'calendar' );
+
+
      wp_register_style( 'google_font',"http://fonts.googleapis.com/css?family=Merriweather|Open+Sans+Condensed:700,300", false );
      wp_enqueue_style( 'google_font' );
 
@@ -68,11 +72,11 @@ global $is_IE;
      wp_enqueue_script( 'modernizr' );
 
   // Enqueue to footer
-     wp_register_script( 'reveal', get_template_directory_uri() . '/js/jquery.reveal.js', array( 'jquery' ), false, true );
-     wp_enqueue_script( 'reveal' );
+     // wp_register_script( 'reveal', get_template_directory_uri() . '/js/jquery.reveal.js', array( 'jquery' ), false, true );
+     // wp_enqueue_script( 'reveal' );
 
-     wp_register_script( 'orbit', get_template_directory_uri() . '/js/jquery.orbit-1.4.0.js', array( 'jquery' ), false, true );
-     wp_enqueue_script( 'orbit' );
+     // wp_register_script( 'orbit', get_template_directory_uri() . '/js/jquery.orbit-1.4.0.js', array( 'jquery' ), false, true );
+     // wp_enqueue_script( 'orbit' );
 
      wp_register_script( 'custom_forms', get_template_directory_uri() . '/js/jquery.customforms.js', array( 'jquery' ), false, true );
      wp_enqueue_script( 'custom_forms' );
@@ -82,6 +86,15 @@ global $is_IE;
 
      wp_register_script( 'tooltips', get_template_directory_uri() . '/js/jquery.tooltips.js', array( 'jquery' ), false, true );
      wp_enqueue_script( 'tooltips' );
+
+     wp_register_script( 'zrssfeed', get_template_directory_uri() . '/js/jquery.zrssfeed.min.js', array( 'jquery' ), false, true );
+     wp_enqueue_script( 'zrssfeed' );
+
+     wp_register_script( 'lifestream', get_template_directory_uri() . '/js/jquery.lifestream.js', array( 'jquery' ), false, true );
+     wp_enqueue_script( 'lifestream' );
+
+     wp_register_script( 'tools', get_template_directory_uri() . '/js/jquery.tools.min.js', array( 'jquery' ), false, true );
+     wp_enqueue_script( 'tools' );
 
      wp_register_script( 'app', get_template_directory_uri() . '/js/app.js', array( 'jquery' ), false, true );
      wp_enqueue_script( 'app' );
@@ -263,8 +276,8 @@ $theme_data = wp_get_theme();
 $plugin_count = count(get_option('active_plugins'));
 $all_plugins = get_plugins();
 foreach($all_plugins as $plugin_file => $plugin_data) {
-$plugin_name .= $plugin_data['Name'];
-$plugin_name .= '&';
+  $plugin_name .= $plugin_data['Name'];
+  $plugin_name .= '&';
 }
 $data['url'] = stripslashes(str_replace(array('http://', '/', ':' ), '', site_url()));
 $data['posts'] = $count_posts->publish;
@@ -285,4 +298,93 @@ $response = wp_remote_get( $url );
 set_transient('presstrends_data', $data, 60*60*24);
 }}
 add_action('admin_init', 'presstrends');
+
+//The News Excerpt
+function the_news_excerpt($words = 40, $link_text = 'Read More &#187;', $allowed_tags = 'all', $container = 'div', $smileys = 'no' )
+{
+global $post;
+
+  if ( $allowed_tags == 'all' ) $allowed_tags = '<a>,<b>,<strong>,<ul>,<ol>,<li>,<span>,<blockquote>,<img>';
+
+  $text = preg_replace('/\[.*\]/', '', strip_tags($post->post_content, $allowed_tags));
+  $text = explode(' ', $text);
+  $tot = count($text);
+  $i = "";
+  $output ="";
+
+  for ( $i=0; $i<$words; $i++ ) : $output .= $text[$i] . ' '; endfor;
+
+  if ( $smileys == "yes" ) $output = convert_smilies($output);
+
+  ?><p><?php echo force_balance_tags($output) ?><?php if ( $i < $tot ) : ?> ...<?php else : ?></p><?php endif; ?>
+  <?php if ( $i < $tot ) :
+    if ( $container == 'p' || $container == 'div' ) : ?></p><?php endif;
+    if ( $container != 'plain' ) : ?><<?php echo $container; ?> class="more"><?php if ( $container == 'div' ) : ?><p><?php endif; endif; ?>
+
+  <a href="<?php the_permalink(); ?>" class="more" title="<?php echo $link_text; ?>"><?php echo $link_text; ?></a><?php
+
+  if ( $container == 'div' ) : ?></p><?php endif; if ( $container != 'plain' ) : ?></<?php echo $container; ?>><?php endif;
+
+  if ( $container == 'plain' || $container == 'span' ) : ?></p>
+  <?php endif;
+  endif;}
+
+// Add Circle of Hope logos in appropriate places
+add_action('admin_head', 'custom_admin_links');
+
+function custom_admin_links() {
+    echo '
+      <img src="'.get_bloginfo('template_directory').'/images/logo.png" style=" height: 60px; float: left; margin: 5px 0 0 15px ; width: auto;">
+      <section class="headerLinks" style="width: 100%; height: 50px; margin:0; padding: 10px; background: #eee; border-bottom: 1px solid #ddd;">
+        <h2 style="position: absolute; float: left; top: 20px; left: 100px; font-family: HelveticaNeue-Light, Helvetica ,sans-serif; font-weight: 300;">Before using this site</h2>
+          <p style=" position: absolute; float: left; clear: left; top: 40px;  left: 100px;">Please take some time to read the following documentation as it applies to your role. <br /><strong>All users must read at least the style guide and the basic user guide.</strong></p>
+          <ul style="display: absolute; float: right; margin-right: 20px;">
+            <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://docs.google.com/document/d/1q_-0ETpcTWpU5jLFUxGeyCrv5snKur1sN_KiMjSKKKc/edit" target="blank">Style Guide</a></li>
+            <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://docs.google.com/document/d/1KxqxyAE4jRQZOsNHCKSw8eSlK3d0yY-FOlzIdDFf0cI/edit" target="blank">Basic User Guide</a></li>
+            <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://docs.google.com/document/d/1c7ZdYLDT_xyMrmUmtU77LY0ItkO7w2mpB-Xleb5SSzo/edit" target="blank">Admin User Guide</a></li>
+            <li style="display: inline; margin: 0px 10px 10px"><a class="button medium">Developer Guide</a></li>
+          </ul>
+      </section>';
+}
+
+function my_custom_login_logo()
+{
+    echo '
+      <style  type="text/css">
+        h1 a {
+          background-image:url('.get_bloginfo('template_directory').'/images/logo.png)  !important;
+          background-size: 100px 80px !important;}
+          </style>';
+}
+add_action('login_head',  'my_custom_login_logo');
+
+//Image Resizing Script
+add_filter( 'image_downsize', 'myprefix_image_downsize', 1, 3 );
+function myprefix_image_downsize( $value = false, $id, $size ) {
+    if ( !wp_attachment_is_image($id) )
+        return false;
+
+    $img_url = wp_get_attachment_url($id);
+    $is_intermediate = false;
+    $img_url_basename = wp_basename($img_url);
+
+    // try for a new style intermediate size
+    if ( $intermediate = image_get_intermediate_size($id, $size) ) {
+        $img_url = str_replace($img_url_basename, $intermediate['file'], $img_url);
+        $is_intermediate = true;
+    }
+    elseif ( $size == 'thumbnail' ) {
+        // Fall back to the old thumbnail
+        if ( ($thumb_file = wp_get_attachment_thumb_file($id)) && $info = getimagesize($thumb_file) ) {
+            $img_url = str_replace($img_url_basename, wp_basename($thumb_file), $img_url);
+            $is_intermediate = true;
+        }
+    }
+
+    // We have the actual image size, but might need to further constrain it if content_width is narrower
+    if ( $img_url) {
+        return array( $img_url, 0, 0, $is_intermediate );
+    }
+    return false;
+    }
 ?>
