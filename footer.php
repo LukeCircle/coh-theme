@@ -2,14 +2,18 @@
 
 		<footer id="content-info" role="contentinfo">
 			<div class="row">
-				<?php dynamic_sidebar("Footer"); ?>
+				<section class="footerNav eight columns">
+					<?php wp_nav_menu(); ?>
+				</section>
+				<section class="footerSocial four columns">
+					<a href="http://twitter.com/circleofhopenet" class="twitterLink">Twitter</a>
+					<a href="http://www.facebook.com/CircleofHopePhillyRegion?fref=ts" class="facebookLink">Facebook</a>
+
+				</section>
 			</div>
 			<div class="row">
-				<div class=" footerNav">
-          <?php wp_nav_menu(); ?>
-        </div>
-        <div class="four columns">
-					&copy; 2008-<?php echo date('Y'); ?> All rights reserved.
+        	<div class="twelve columns">
+					&copy; 1995-<?php echo date('Y'); ?> Circle of Hope
 					<br>
 				</div>
 				<?php //wp_nav_menu(array('theme_location' => 'utility_navigation', 'container' => false, 'menu_class' => 'eight columns footer-nav')); ?>

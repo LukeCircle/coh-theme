@@ -21,11 +21,8 @@ Loop for Search Page
 			<?php reverie_entry_meta(); ?>
 		</header>
 		<div class="entry-content">
-			<?php the_content('Continue reading...'); ?>
+  			        <?php the_advanced_excerpt('length=140')?>
 		</div>
-		<footer>
-			<?php $tag = get_the_tags(); if (!$tag) { } else { ?><p><?php the_tags(); ?></p><?php } ?>
-		</footer>
 		<div class="divider"></div>
 	</article>
 

@@ -11,7 +11,7 @@ Loop for Individual Posts
 ?>
 <?php /* Start loop */ ?>
 <?php while (have_posts()) : the_post(); ?>
-    <article class="twelve columns" id="post-<?php the_ID(); ?>">
+    <article class="twelve columns singleCongregation" id="post-<?php the_ID(); ?>">
 
       <!--Special calls for Congregation Post Type-->
 
@@ -248,41 +248,41 @@ Loop for Individual Posts
 				<p><?php the_tags(); ?></p>
 
 	        <!--Stories Post Type Sidebar Fix | What the hell is this?-->
-	        	<?php if('stories' === get_post_type() ) {?>
-
-	        	<h3 class="related">Other Stories</h3>
-	        	<?php } else { ?>
-	        	<h3 class="related">Related Stories</h3> <?php } ?>
-	        	<?php
-		        	global $post;
-		        	$categories = get_the_category();
-		        	$thiscat = $categories[0]->cat_ID;
-		        	?>
-		        	<?php if('stories' === get_post_type() ) {?>
-			        	<?php query_posts('showposts=4&orderby=rand&post_type=stories'); ?>
-			        <?php } else { ?>
-			        	<?php query_posts('showposts=4&orderby=rand&cat=' . $thiscat); }?>
-			        <?php $r_count = 1; ?>
-			        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			        <?php if($r_count%2 == 0){
-				        $r_class = 'last';
-				        }else{
-					        $r_class = '';
-					        }
-					        $r_count++;
-					 ?>
-					 <?php if( $post->ID == $do_not_duplicate ) continue;?>
-	  				<a href="<?php the_permalink(); ?>">
-	  			    
-	  			    <div class="morePost five columns <?php echo $r_class;?>">
-	       				<?php
-							if ( has_post_thumbnail() )
-							{
-	 							 the_post_thumbnail ('bottom_image');
-							}
-						?>
-						<h2><?php the_title(); ?></h2>
-					</div><!--/.morePost--></a>
+	        	
+	        	<h3 class="related">Related Stories</h3>
+	        	<div class="row">
+		        	<?php
+			        	global $post;
+			        	$categories = get_the_category();
+			        	$thiscat = $categories[0]->cat_ID;
+			        	?>
+			        	<?php if('stories' === get_post_type() ) {?>
+				        	<?php query_posts('showposts=4&orderby=rand&post_type=stories'); ?>
+				        <?php } else { ?>
+				        	<?php query_posts('showposts=4&orderby=rand&cat=' . $thiscat); }?>
+				        <?php $b_count = 1; ?>
+				        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				        <?php if($b_count%2 == 0){
+					        $b_class = 'last';
+					        }else{
+						        $b_class = '';
+						        }
+						        $b_count++;
+						 ?>
+						 <?php // if( $post->ID == $do_not_duplicate ) continue;?>
+		  				<a href="<?php the_permalink(); ?>">
+			  			    <div class="morePost six columns <?php echo $b_class;?>">
+			       				<?php
+									if ( has_post_thumbnail() )
+									{
+			 							 the_post_thumbnail ('bottom_image');
+									} else { ?>
+									<img src='<?php echo get_template_directory_uri(); ?>/images/morePosts.png'> 
+									<?php }
+								?>
+								<h2><?php the_title(); ?></h2>
+							</div><!--/.morePost-->
+						</a>
 				<?php endwhile; else : ?>
 				<p>We couldn't find any related stories for you to read.</p>
 				<?php endif; ?>
@@ -292,5 +292,8 @@ Loop for Individual Posts
   			</div><!--/.singleSidebar-->
       	</div><!--/.single-->
   </article>
+
 <?php }?>
 <?php endwhile; // End the loop ?>
+
+</div>

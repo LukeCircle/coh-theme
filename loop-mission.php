@@ -24,8 +24,10 @@ Loop for Mission Teams
     <?php // Printing out the markup for each item of the loop ?>
       <a href="<?php the_permalink(); ?>" class="teamLink">
   	    <article class="four columns teamPage " id="post-<?php the_ID(); ?>">
-  	      <?php the_post_thumbnail ('grid_image'); ?>
-  	      <h3 class="teamName"><?php the_title(); ?></h3>
+    	    <section class="innerBox">
+            <?php the_post_thumbnail ('grid_image'); ?>
+    	      <h3 class="teamName"><?php the_title(); ?></h3>
+          </section>
   	    </article>
   	  </a>
     <?php echo $r_markup;?>

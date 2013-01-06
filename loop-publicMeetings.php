@@ -21,10 +21,12 @@ Loop for Public Meetings Page
   	?>
 	  <a href="<?php the_permalink(); ?>" class="congregationLink">
 	    <article class="<?php echo $r_class;?>" id="post-<?php the_ID(); ?>">
-        <?php the_post_thumbnail ('grid_image'); ?>
-        <header>
-          <h2 class="entry-title"><?php the_title(); ?></h2>
-        </header>
+        <section class="innerBox">
+          <?php the_post_thumbnail ('grid_image'); ?>
+          <header>
+            <h2 class="entry-title"><?php the_title(); ?></h2>
+          </header>
+        </section>
       </article>
     </a>
 <?php endwhile;  ?>

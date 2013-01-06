@@ -26,7 +26,7 @@
     					<?php if (is_archive() || is_search()) : // Only display excerpts for archives and search ?>
 				       <?php the_excerpt(	); ?>
     						<?php else : ?>
-						      <?php the_excerpt()?>
+						      <?php the_advanced_excerpt('length=90'); ?>
     						<?php endif; ?>
 		         </div>
       			<footer>
@@ -40,28 +40,32 @@
           <div class="row">
           	<div id="more" class="twelve columns last">
 
-          <!-- Loop Through for More "Featured Stories" -->
-          <?php // Start loop  ?>
-          	<?php query_posts( 'posts_per_page=6&cat=161' ); ?>
-				      <?php while (have_posts()) : the_post();
- 					      if( $post->ID == $do_not_duplicate ) continue;?>
-    				      <?php //Make the whole block a link to the blog post ?>
-                  <a href="<?php the_permalink(); ?>">
-    			          <div class="morePost two columns">
-                      <?php // Check to see if there's a thumbnail ?>
-                      <?php if ( has_post_thumbnail() ) {
-             							the_post_thumbnail ('bottom_image');
-            					}?>
-                      <?php //The Blog Post's title?>
-    			            <h2><?php the_title(); ?></h2>
-    			          </div><!--/.morePost-->
-                  </a>
-				      <?php endwhile;  // End the loop ?>
+            <!-- Loop Through for More "Featured Stories" -->
+            <?php // Start loop  ?>
+            	<?php query_posts( 'posts_per_page=6&cat=161' ); ?>
+  				      <?php while (have_posts()) : the_post();
+   					      if( $post->ID == $do_not_duplicate ) continue;?>
+      				      <?php //Make the whole block a link to the blog post ?>
+                    <a href="<?php the_permalink(); ?>">
+      			          <div class="morePost two columns">
+                        <div class="moreInner">
+                          <?php // Check to see if there's a thumbnail ?>
+                          <?php if ( has_post_thumbnail() ) {
+                 							the_post_thumbnail ('bottom_image');
+                					}?>
+                          <?php //The Blog Post's title?>
+        			            <h2><?php the_title(); ?></h2>
+                        </div><!-- /.moreInner -->
+      			          </div><!--/.morePost-->
+                    </a>
+  				      <?php endwhile;  // End the loop ?>
 
             <!-- Add a Permanent Link to the Blog Page -->
-    				<a href="../blog">
+    				<a href="blog">
               <div class="morePost two columns last">
-    					 <h2 class="readMore">Read More Blog Posts</h2>
+                <div class="moreInner">
+    					    <h2 class="readMore">Read More Blog Posts</h2>
+                </div>
     				  </div>
             </a>
           </div><!--/#more-->
@@ -82,114 +86,110 @@
       	<!--Events Feed-->
       	<div class="row">
       		<div class="twelve columns">
-      		<?php
-     			$r_count = 1;
+      		<?php $r_count = 1; //Initiate our Counter for adding appropriate classes
 
-				global $post;
+				  global $post;
 
-					$all_events = tribe_get_events(array(
-					'eventDisplay'=>'upcoming',
-					'posts_per_page'=>6
-					));
+          //Access the events from the WP Events Calendar API
+  					$all_events = tribe_get_events(array(
+  					'eventDisplay'=>'upcoming',
+  					'posts_per_page'=>6
+  					));
 
-				foreach($all_events as $post) {
-				setup_postdata($post);
+  				foreach($all_events as $post) {
+  				setup_postdata($post);
+ 
+  			 	 if($r_count%6 == 0){ //Iterate through our counter variable so that we can add the appropriate classes
+  					$r_class = 'last';
+  					}else{
+  					$r_class = '';
+  			 		}
+  					$r_count++; ?>
+      			
+            <!-- Print out the markup for each event -->
+            <section class="two columns <?php echo $r_class?> event">
+      				<!-- Wrap the whole event in a link to make it clickable -->
+              <a href="<?php the_permalink(); ?>">
+        				<!-- Get the Event's thumbnail -->
+                <div class="event-thumb">
+        					<?php the_post_thumbnail('thumbnail'); ?></a>
+        				</div>
+        				<!-- Grab the link to the Event -->
+                <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h4>
+        				
+                <!-- Grab the date for the Event -->
+                <div class="event-excerpt">
+        					<?php echo tribe_get_start_date( $post->ID, false, 'D, M j' ); ?>
 
-				 	 if($r_count%6 == 0){
-						$r_class = 'last';
-						}else{
-						$r_class = '';
-				 		}
-						$r_count++;
-
-			?>
-			<section class="two columns <?php echo $r_class?> event">
-				<a href="<?php the_permalink(); ?>">
-				<div class="event-thumb">
-						<?php the_post_thumbnail('thumbnail'); ?></a>
-						</div>
-				<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h4>
-								<div class="event-excerpt">
-					<?php echo tribe_get_start_date( $post->ID, false, 'D, M j' ); ?>
-
-					</div></a>
-
-									</section>
-					<?php } //endforeach ?>
-					<?php wp_reset_query(); ?>
-      		</div>
-		</div><!--end .row-->
-
-		      	<!--Twitter Feed
-      	<div class="row NoMobile">
-      		<div class="tweets">
-      			<h3><a href="http://twitter.com/circleofhopenet" target="blank">@circleofhopenet</a></h3>
-          		<?php /* echo do_shortcode('[twitter-feed username="circleofhopenet" mode="public" num="5" userintent="no" tweetintent="no" twitterJS="yes" userlinks="yes" ulclass="twelve columns tweetList" conditional="no" phptime="j F" followlink="no" liclass="two columns" img="no"]');*/ ?>
-      		</div>
-      	</div><!-- end .row-->
-
-      	<!--Proverbs Feed-->
-      	<div class="row NoMobile">
-          	<div id="proverbs" class="twelve columns last">
-
-          	<?php /* Start loop */ ?>
-				<?php $args = array('post_type' => 'proverbs', 'posts_per_page' => 1, 'orderby' => 'rand' ); ?>
-				<?php $proverbs = new WP_Query( $args );?>
-				<?php while ($proverbs->have_posts()) : $proverbs->the_post();?>
-
-  			    <div class="proverbsPost">
-				<a href="/circle/convictions"><h2><?php the_title(); ?> <span class="fromProverbs">-from the Circle of Hope Proverbs</span></h2></a>
-				</div><!--/.proverbsPost-->
-				<?php endwhile;  // End the loop ?>
-
-          	</div><!--/#proverbs-->
+        				</div>
+              </a>
+      			</section>
+			    <?php } //endforeach ?>
+  				<?php wp_reset_query(); //Clear out the flue for other loops?>
+        	</div>
+		    </div><!--end .row-->
 
 
-       	</div><!-- end .row-->
+    	<!--Proverbs Feed-->
+    	<div class="row NoMobile">
+        <div id="proverbs" class="twelve columns last">
 
-       	<div class="row ">
+        	<?php /* Start loop */ ?>
+  	       	<?php $args = array('post_type' => 'proverbs', 'posts_per_page' => 1, 'orderby' => 'rand' ); ?>
+  		      <?php $proverbs = new WP_Query( $args );?>
+  		      <?php while ($proverbs->have_posts()) : $proverbs->the_post();?>
+
+    		    <div class="proverbsPost">
+    		      <a href="/circle/convictions"><h2><?php the_title(); ?> <span class="fromProverbs">-from the Circle of Hope Proverbs</span></h2></a>
+    		    </div><!--/.proverbsPost-->
+  		    <?php endwhile;  // End the loop ?>
+
+        </div><!--/#proverbs-->
+     	</div><!-- end .row-->
+
+    <div class="row ">
 			<section class="eight columns dailyPrayerBox">
-		       	<h3>The Daily Prayer Blog</h3>
-		        	<div id="dailyprayer"></div>
+		   	<h3>The Daily Prayer Blog</h3>
+		   	<div id="dailyprayer"></div>
 			</section>
-       	</div><!--/.row-->
+    </div><!--/.row-->
 
-       	<div class="row">
-       		<h3 class="pmtitle">Public Meetings</h3>
-       		<section class="three columns congregationList">
+    <div class="row">
+      <h3 class="pmtitle">Public Meetings</h3>
+       	<section class="three columns congregationList">
        		<h4>Broad and Washington</h4>
        		<p>1125 South Broad St. 2nd Floor <br />
        		Philadelphia, PA 19147<br />
        		Pastor | <a href="mailto:rod@circleofhope.net">Rod White</a>
        		</p>
-       		</section>
+       	</section>
 
-       		<section class="three columns congregationList">
+     		<section class="three columns congregationList">
        		<h4>Frankford and Norris</h4>
        		<p>2009 Franford Ave. 1st Floor<br />
        		Philadelphia, PA 19125<br />
        		Pastor | <a href="mailto:joshua@circleofhope.net">Joshua Grace</a>
        		</p>
-       		</section>
+     		</section>
 
-       		<section class="three columns congregationList">
+     		<section class="three columns congregationList">
        		<h4>Marlton and Crescent</h4>
        		<p>3800 Marlton Pike <br />
        		Pennsauken, NJ 08110<br />
        		Pastor | <a href="mailto:nate@circleofhope.net">Nate Hulfish</a>
        		</p>
-       		</section>
+     		</section>
 
-       		<section class="three columns last congregationList">
+     		<section class="three columns last congregationList">
        		<h4>Broad and Dauphin</h4>
        		<p>2309 N. Broad St.<br />
        		Philadelphia, PA 19122<br />
        		Pastor | <a href="mailto:jonny@circleofhope.net">Jonny Rashid</a>
        		</p>
-       		</section>
-       	</div><!--/.row-->
-      </div>
-  </div><!-- /.container[role="main]-->
+     		</section>
+    </div><!--/.row-->
+  </div>
+</div><!-- /.container[role="main]-->
 <?php get_footer(); ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.zrssfeed.min.js" type="text/javascript"></script>
 <script type="text/javascript">

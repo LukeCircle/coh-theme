@@ -1,3 +1,8 @@
+/* Foundation Fixes */
+table tbody tr:nth-child(even) {
+	background: none;
+}
+
 /* PAGE GRID */
 
 .gce-page-grid .gce-calendar .gce-caption{ /* Caption at top of calendar */
@@ -12,14 +17,14 @@
 .gce-page-grid .gce-calendar{ /* Main calendar table */
 	width:100%;
 	border-collapse:collapse;
-	border:1px solid #444;
+	border:1px solid rgba(47, 55, 58, .5) !important;
 	color:#CCCCCC;
 	font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, sans-serif;
-	background-color: #2F373A;
+	background-color: rgba(255, 255, 255, .2) !important;
 }
 
 .gce-page-grid .gce-calendar th{ /* Day headings (S, M etc.) */
-	border:1px solid #4d5b60;
+	border:1px solidrgba(47, 55, 58, .5) !important;
 	text-align:center;
 	width:14.29%;
 	padding:0;
@@ -27,7 +32,7 @@
 }
 
 .gce-page-grid .gce-calendar td{ /* Day table cells */
-	border:1px solid #4d5b60;
+	border:1px solid rgba(47, 55, 58, .5) !important;
 	text-align:center;
 	height:80px;
 	vertical-align:middle;
@@ -49,7 +54,7 @@
 }
 
 .gce-page-grid .gce-calendar .gce-today{ /* Table cell that represents today */
-	background-color:  rgba(201, 215, 251, 0.7); rgb(201, 215, 251);
+	background-color:  rgba(201, 215, 251, 0.7) rgb(201, 215, 251);
 	text-shadow: 1px 1px 1px #a9c0f9;
 	color: #fff;
 }
@@ -63,7 +68,16 @@
 
 .gce-page-grid .gce-calendar .gce-month-title{ /* Month title */
 	display:inline-block;
-	font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; color:#2F373A; width: 75%; margin-left: auto; margin-right: auto; text-align: center; text-decoration: none;
+	font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; 
+	font-size: 36px; text-transform: uppercase; 
+	margin-bottom: 10px; 
+	border-bottom: 1px dotted #3d425e; 
+	color:#2F373A; width: 75%; 
+	margin-left: auto; 
+	margin-right: auto; 
+	text-align: center; 
+	text-decoration: none;
+	line-height: 60px !important
 }
 
 .gce-page-grid .gce-calendar th abbr{ /* Day letter abbreviation */
@@ -108,7 +122,7 @@ ul.gce-list li {
 ul.gce-list li ul li { margin: 30px 0;}
 
 ul.gce-list a {color: #ad5251; text-decoration: none; }
-ul.gce-list a:hover {border-bottom: 1px dotted #ad5251;}
+ul.gce-list a:hover {border-bottom: 1px dotted  rgba(47, 55, 58, .5) !important;}
 
 
 
@@ -121,20 +135,20 @@ ul.gce-list a:hover {border-bottom: 1px dotted #ad5251;}
 
 .gce-widget-grid .gce-calendar{ /* Main calendar table */
 	width:100%;
-	border:1px solid #CCCCCC;
+	border:1px solid  rgba(47, 55, 58, .5) !important;
 	border-collapse:collapse;
 }
 
 .gce-widget-grid .gce-calendar th{ /* Day headings (S, M etc.) */
 	width:14.29%;
-	border:1px solid #CCCCCC;
+	border:1px solid rgba(47, 55, 58, .5) !important;
 	text-align:center;
 }
 
 .gce-widget-grid .gce-calendar td{ /* Day table cells */
 	color:#CCCCCC;
 	width:14.29%;
-	border:1px solid #CCCCCC;
+	border:1px solid rgba(47, 55, 58, .5) !important;
 	text-align:center;
 }
 
@@ -196,7 +210,7 @@ ul.gce-list a:hover {border-bottom: 1px dotted #ad5251;}
 
 .gce-event-info{ /* Tooltip container */
 	background-color:#FFFFFF;
-	border:1px solid #333333;
+	border:1px solid rgba(47, 55, 58, .5) !important;
 	max-width:300px;
 	text-shadow: none;
 }

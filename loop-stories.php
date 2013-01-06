@@ -19,14 +19,16 @@ Loop for the 100 Stories Page
 		?>
 		
 	<!-- Print out the markup for each Story -->
-	<div class="accordionButton">
-		<article class="twelve columns convictionsPost <?php echo $r_class;?>" id="post-<?php the_ID(); ?>">
-			<h3 class="convictionsName"><?php the_title(); ?></h3>
-		</article>
-	</div><!--/.accordionButton -->
-	
-	<!-- Print out the content for each story in the Accordion Content area -->
-	<div class="accordionContent">
-		<?php the_content(); ?>
-	</div>
+	<section class="storyBox">
+		<div class="accordionButton">
+			<article class="twelve columns convictionsPost <?php echo $r_class;?>" id="post-<?php the_ID(); ?>">
+				<h3 class="convictionsName"><?php the_title(); ?></h3>
+			</article>
+		</div><!--/.accordionButton -->
+		
+		<!-- Print out the content for each story in the Accordion Content area -->
+		<div class="accordionContent">
+			<?php the_content(); ?>
+		</div>
+	</section>
 <?php endwhile;  ?>

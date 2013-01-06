@@ -92,7 +92,6 @@
 			<label for="comment"><?php _e('Comment', 'reverie'); ?></label>
 			<textarea name="comment" id="comment" tabindex="4"></textarea>
 		</p>
-		<p id="allowed_tags" class="small"><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>
 		<p><input name="submit" class="radius large button" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment', 'reverie'); ?>"></p>
 		<?php comment_id_fields(); ?>
 		<?php do_action('comment_form', $post->ID); ?>

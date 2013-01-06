@@ -7,7 +7,7 @@ Loop for the Blog Page
   <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; query_posts("posts_per_page=10&paged=$paged"); ?>
     <?php while (have_posts()) : the_post(); ?>
       <div class="row blogPost">
-        <div class="four columns">
+        <div class="four columns blogImage">
           <?php if ( has_post_thumbnail() ) {
             the_post_thumbnail ('grid_image');
           }?>
@@ -19,7 +19,7 @@ Loop for the Blog Page
    					    <h2 class="blogTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       				</header>
   			      <div>
-  			        <?php the_news_excerpt(100, 'Continue Reading','p','div')?>
+  			        <?php the_advanced_excerpt('length=140')?>
   		        </div>
 			      </article>
 		    </div>

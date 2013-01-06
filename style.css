@@ -51,19 +51,23 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   body {background: url('images/bg.png'); font-family: Merriweather, serif; font-size: 14px !important; line-height: 1.2em !important; }
   a:active, input.button:active { outline: 0; position: relative; top: 1px; }
 
-	p {padding: 10px 0; line-height: 1.8rem;}
+  p {padding: 10px 0; line-height: 2rem !important; margin: 0;}
 
   a {color:#ad5251;}
 
 	/*h1, h2, h3, h4, h5, h6 { text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }*/
-	h1, a h1 {color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 30px; text-decoration: none !important; line-height: 40px;}
-	a h1 {text-decoration: none;}
-	h2, h2 a, a h2 {color: #ad5251; padding: 20px 0 5px 0; font-size: 32px; line-height: 36px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none;}
-	h3, h3 a, a h3 { padding: 15px 0 5px; font-size: 24px;line-height: 28px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none;}
-	h4, h4 a, a h4 {padding: 10px 0 5px; font-size: 18px; line-height: 20px; color: #906c3a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-decoration: none;}
-	h5, h5 a, a h5 {padding: 10px 0 5px; font-size: 18px; line-height: 20px; color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 300; text-decoration: none;}
+	h1, a h1 {color: #2f373a; font-weight: bold; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 30px; text-decoration: none !important; line-height: 40px;}
+	a h1 {text-decoration: none; font-weight: bold;}
+	h2, h2 a, a h2 {color: #ad5251; font-weight: bold; padding: 20px 0 5px 0; font-size: 32px; line-height: 36px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none;}
+	h3, h3 a, a h3 { padding: 15px 0 5px; font-weight: bold; font-size: 24px;line-height: 28px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none;}
+	h4, h4 a, a h4 {padding: 10px 0 5px; font-size: 18px; font-weight: bold;line-height: 20px; color: #906c3a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-decoration: none;}
+	h5, h5 a, a h5 {padding: 10px 0 5px; font-size: 18px; line-height: 20px; font-weight: bold; color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 300; text-decoration: none;}
 
 	.accordionButton {cursor: pointer;}
+
+	table {background: none; border: none;}
+
+	ul.page-numbers li span.current {background: #2F373A;}
 /* =============================================================================
    Header
    ========================================================================== */
@@ -78,12 +82,14 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   ul.nav-bar > li:last-child {border-right: none ;}
   ul.nav-bar > li:hover {background: rgb(47, 55, 58);}
   ul.nav-bar > li a {color: #af9c71; font-size: 20px !important; padding: 10px 20px;}
-  ul.nav-bar li:hover > ul.sub-menu {display: inline-block;}
-  ul.sub-menu {display:none; position: absolute; z-index: 5;}
+  ul.nav-bar > li.active, ul.nav-bar > li.active:hover, ul.nav-bar > li.current-menu-ancestor {background: rgba(47, 55, 58, .9);}
+  ul.nav-bar li:hover > ul.sub-menu {display: inline;}
+  ul.sub-menu {display: none;}
+  @media (min-width: 787px) {ul.sub-menu {display:none; position: absolute; z-index: 5;}) /* Wrapping this in a media query so that mobile will get the automatic Foundation styles*/
   ul.sub-menu li > ul.sub-menu {display: none;}
   ul.nav-bar > li.has-flyout > a:first-child::after {border-color: rgba(175, 156, 113, .5) transparent transparent transparent;}
-  ul.flyout li, .nav-bar li ul li {border-left: 3px solid rgb(47, 55, 58);;}
-      /* Legacy Navigation Code */
+  ul.flyout li, .nav-bar li ul li {border-left: 3px solid rgb(47, 55, 58);}
+      /* Legacy Navigation Code 
     	.nav-main {height: auto;}
     	.nav-main ul {font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; position: relative;  font-weight: 700; list-style: none; margin: 0 auto 16px auto; padding: 0; text-align: left; float: left; width: 100%;}
     	.nav-main ul li { float: right; margin: 0; *zoom: 1; }
@@ -96,9 +102,9 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
 
     	.nav-main ul ul { position: absolute !important; display: block; visibility: hidden; top: 35px; left: 0; right: 0; margin: 0; height: 40px; width: 100%; /*background: #222535;*/ padding: 5px; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; opacity: 0; -webkit-transition: visibility linear 0.1s,opacity 0.1s linear;}
-    	.nav-main ul ul li { float: right; }
+    	/*.nav-main ul ul li { float: right; }
     	.nav-main ul ul li a {font-size: 14px; text-shadow: 1px 1px 0 #2f373a; padding: 4px 16px; width: 100%; /*account for the width of ul#nav-main ul and the padding on the anchor */ display: inline-block;}
-    	.nav-main ul ul li a:hover,
+    	/*.nav-main ul ul li a:hover,
     	.nav-main ul ul li.current-menu-item > a,
     	.nav-main ul ul li.current-menu-parent > a,
     	.nav-main ul ul li.current-menu-ancestor > a,
@@ -106,7 +112,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
     	nav.nav-main ul ul ul.sub-menu { position: relative; background: #fff; z-index: 3000; width: 300px;}
     	.nav-main ul li:hover > ul { visibility: visible; opacity: 1;   transition-delay:0s;
-    	}
+    	}*/
 
 	#nav-utility { position: absolute; top: 0; right: 0; }
 	#nav-utility ul { list-style: none; margin: 0; padding: 0; float: right; width: auto; position: relative; }
@@ -135,7 +141,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
    Main Body Container
    ========================================================================== */
   .container {width: 100%;}
-	.container[role="main"] { background-image: url('images/bg2.jpg'), url('images/bg4.jpg');  background-repeat: no-repeat, no-repeat; background-position:  center top, center bottom; /*padding: 10px 0 20px; min-height:685px; margin-top: -30px; position: relative; z-index: 1; */}
+	.container[role="main"] { background-image: url('images/bg2.jpg'), url('images/bg4.jpg');  background-repeat: no-repeat, no-repeat; background-position:  center top, center bottom; padding-bottom: 30px; /*padding: 10px 0 20px; min-height:685px; margin-top: -30px; position: relative; z-index: 1; */}
 	.content .container { width: auto; position: relative; padding: 0; }
 	.content.shorter {min-height: 200px;}
 
@@ -180,15 +186,19 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	#featuredPost header {margin-bottom: 10px;}
 	#featuredPost h2 a {color: #ad5251;}
 	#featuredPost .hentry time {position: relative; text-align: right; margin-bottom: -26px; color:#2f373a; font-size: 16px;}
+	#featuredPost .entry-content p {margin-top: 0; margin-bottom: 0;}
 	#featuredPost p{line-height: 22px; text-align: justify; text-justify: newspaper; }
 	#featured p.author {color: #2f373a; font-size: 14px; margin-top: 6px;}
 	#featured p.author a {text-decoration: none; color: #2f373a;}
 	#featured h4 {color: #2f373a; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-size: 36px; line-height: 40px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px dotted #3d425e; width: 75%; margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 30px; }
-	#featured a.more {background: #AD5251; padding: 10px; color: white; text-decoration: none; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+	#featured a.read_more {float: right; }
+    #featured a.read_more {background: #AD5251; padding:10px; margin-top: 10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+    #featured a.read_more:hover {background: #964746;}
 
 
-	#more {padding: 30px 0px 0 0px; }
-	.morePost {float: left;clear:none; display: block; position: relative; overflow: hidden; padding: 7px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); min-height: 220px;}
+
+	#more {padding: 30px 0px 30px 0px; }
+	.morePost .moreInner {float: left;clear:none; display: block; position: relative; overflow: hidden; padding: 7px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); min-height: 220px;}
 	.morePost h2 {font-size: 14px; line-height: 20px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #2f373a; text-align: center;text-decoration: none; text-transform: uppercase;}
 	#more  a {text-decoration: none;}
 	#more img {display: block; margin: 0 auto;}
@@ -201,7 +211,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 			.morePost a {text-decoration: none;}
 			*/
 	#more div.morePost h2.readMore {font-size: 1.5em; line-height: 1em; margin-top: 10%;}
-	#more div.last {background-image:  url(../img/morePosts.png); background-position: center 70%; background-repeat:  no-repeat;}
+	#more div.last {background-image:  url(images/morePosts.png); background-position: center 70%; background-repeat:  no-repeat;}
 
 	h3.more {float: left; width: 155px; padding: 0 0 12px 0;margin-right: 10px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 50px; text-transform: uppercase; color: #ad5251; line-height: 45px; text-align: right; border-bottom: 10px solid #ad5251; border-top: 10px solid #ad5251;}
 	h3.mobileMore {display: none;}
@@ -216,7 +226,8 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	.single header a {text-decoration: none;}
 	.single header p.author,  {float:right; clear: left; margin-top: -20px; font-size: inherit; line-height: 20px;}
 	.single  img.wp-post-image {display: block; margin: 0 auto;}
-	.singleSidebar .morePost {margin: 15px 15px 15px 18px;}
+	.singleSidebar .morePost {min-height: 215px;}
+	.singleSidebar .morePost img{display: block; margin: 0 auto;}
 	h3.related {color: #ad5251; margin: 20px 0 5px 0; font-size: 32px; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; text-transform: uppercase; text-align:center;}
 
 
@@ -224,7 +235,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* =============================================================================
    Middle of Front Page Section
    ========================================================================== */
-	.container[role="middle"] {background: rgba(92, 92, 92, 0.2); padding: 20px 0;}
+	.container[role="middle"] {background: rgba(92, 92, 92, 0.2); padding: 20px 0; margin-bottom: -30px;}
 	div.midbg div.row {border-top: 1px dotted #ccc;}
 	div.midbg h2 {text-align: center; padding: 0; margin: 5px 0;}
 
@@ -269,12 +280,12 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
 
 
-
 /* =============================================================================
 	Convictions Page
    ========================================================================== */
-	article.convictionsPost {display: block; line-height:30px; text-align: center; padding: 0; margin: 5px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
-	a article.convictionsPost  h3  {color: #2f373a;}
+	article.convictionsPost {display: block; line-height:30px; text-align: center; padding: 0 5px; margin: 5px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
+	a article.convictionsPost  h3  {color: #2f373a; }
+	h3.convictionsName {margin-top: 0; margin-bottom: 0;}
 
 /* =============================================================================
    Post & Comment Navigation (Deprecated due to using Disqus)
@@ -345,12 +356,14 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
    Congregation Pages
    ========================================================================== */
 
-	article.congregationPost {padding: 20px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 1.4%;   }
+	article.congregationPost {}
 	article.congregationPost img {display: block; margin: 0 auto;}
 	article.congregationPost h2 {color: #ad5251;  text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; line-height: 30px; text-decoration: none; margin-bottom: 10px;}
+	article.congregationPost section.innerBox {padding: 20px 10px 40px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
 	a.congregationLink {text-decoration: none;}
 	article.congregation h1.congregationTitle a  {color:#2F373A; text-decoration: none;}
 
+	article.singleCongregation header {margin: 0 -30px !important;}
 
 	div.congregation h2 {font-size: 36px; text-align: center;}
 	div.congregation nav {text-align: center; margin-left: auto; margin-right: auto; display: block; padding: 10px 0; background: rgb(256, 256, 256); background: rgba(256, 256, 256, .7);}
@@ -459,6 +472,9 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
    100 Stories Pages
    ========================================================================== */
 
+	section.storyBox { position:relative;}
+	section.storyBox div.accordionContent {float:left;}
+
 	article.storiesPost {padding: 20px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px;  }
 	article.storiesPost img {display: block; margin: 0 auto;}
 	article.storiesPost h2 {color: #2f373a;  text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; line-height: 30px; text-decoration: none; margin-bottom: 10px; padding: 0 20px;}
@@ -477,8 +493,9 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	section.teamText {color: #2F373A; padding-bottom: 20px; margin: 15px auto; text-align: justify; font-size: 17px; line-height: 24px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.7);}
 	section.teamText p {padding: 10px 60px;}
 	section.teamText a {color: #ad5251;}
-	article.teamPage {padding: 20px 0; min-height: 440px; margin-bottom: 20px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2);}
-	article.teamPage img {display: block; margin: 0 auto;}
+	article.teamPage {margin-bottom: 20px; }
+	article.teamPage section.innerBox {padding: 20px 0; margin: 10px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); min-height: 390px;}
+	article.teamPage img {display: block; margin: 0 auto; width: 90%; height: auto;}
 	a h3.teamName {color: #ad5251; text-align: center; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; font-size: 24px; text-decoration: none;}
 	a.teamLink {text-decoration: none; margin-top: 20px;}
 
@@ -486,7 +503,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	/*Individual Pages --> This is the actual team page*/
 	article.team_page header.team h1 {margin-bottom: 0px;}
 	article.team_page header h2 a {color: #ad5251; font-size:2.9em; line-height: 1em !important; font-family: "Open Sans Condensed",'Helvetica Neue', Helvetica, sans-serif; text-transform: uppercase;margin-top: 0; }
-		div.searchPage article.team_page header h2 a{text-decoration: none; color: #906C3A; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1em;}
+	div.searchPage article.team_page header h2 a{text-decoration: none; color: #906C3A; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1em;}
 	header.team {margin-top: 30px;}
 	header.team h4 {text-align: center;}
 	article.team_page #about {background: none;}
@@ -511,21 +528,22 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* =============================================================================
   Look and Listen Page
    ========================================================================== */
-	article.lookAndListenPost {padding: 20px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px; text-align: center; cursor: pointer; text-decoration: none;}
+	article.lookAndListenPost {padding: 20px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px; text-align: center; cursor: pointer; text-decoration: none; min-height: 340px;}
 	a.lookAndListenLink{text-decoration: none;}
 	div.simpleOverlay {display:none; padding: 30px; background: #000; z-index: 999;}
-	div.simpleOverlay .close {background-image:url(../img/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:33px; width:33px;}
+	div.simpleOverlay .close {background-image:url(images/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:33px; width:33px;}
 
 /* =============================================================================
    Links Scroller --> This can only be used once per page
    ========================================================================== */
-	a.linksLink{text-decoration: none; float: left; width: 215px;}
+	a.linksLink{text-decoration: none; float: left; width: 198px; }
+	a.linksLink article {height: 340px;}
 
-	.scrollable, .scrollable2 {position:relative; overflow:hidden; width: 84%; height:300px;}
+	.scrollable, .scrollable2 {position:relative; overflow:hidden; width: 90%; height:300px;}
 	.scrollable .items, .scrollable2 .items2 {width:20000em; position:absolute;}
 	.items div, .items2 dive {float:left;}
 	.scrollable, .scrollable2 {float:left;}
-	a.browse {background:url(/img/hori_large.png) no-repeat; display:block; width:30px; height:30px; float:left; margin:100px 10px; cursor:pointer; font-size:1px;}
+	a.browse {background:url(images/hori_large.png) no-repeat; display:block; width:30px; height:30px; float:left; margin:100px 10px; cursor:pointer; font-size:1px;}
 	a.right { background-position: 0 -30px; clear:right; margin-right: 0px;}
 	a.right:hover { background-position:-30px -30px; }
 	a.right:active { background-position:-60px -30px; }
@@ -545,11 +563,14 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
    h1.single_title {margin-top: 30px !important;}
    h1.page_title {margin-top: 30px !important;}
 
-   div.blogPost { margin-bottom: 50px;}
+   div.blogPost { margin-bottom: 60px !important;}
+   div.blogPost .blogImage {background: rgba(255, 255, 255, .5); padding: 10px 0 50px 0;}
+   div.blogPost .blogImage img {width: 93%; display: block; margin: 0 auto;}
    div.blogPost h2.blogTitle {padding-top: 0; margin-top:0;}
-   div.blogPost div.more {float: right; }
-   div.blogPost div.more p a, a.button {background: #AD5251; padding:10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
-   div.blogPost div.more p a:hover,  a.button:hover {background: #964746;}
+   div.blogPost p {padding: 0;}
+   div.blogPost a.read_more {float: right; }
+   div.blogPost a.read_more {background: #AD5251; padding:10px; margin-top: 10px; color: #fff; text-decoration: none; font-family: "Open Sans Condensed",  "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase;}
+   div.blogPost a.read_more:hover {background: #964746;}
 
    div.wp-pagenavi {text-align:center;}
    div.wp-pagenavi span, div.wp-pagenavi a {border: none; background: #2F373A; color: #C9BFB0; font-size: 1.2em;}
@@ -561,7 +582,9 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
    article.staffPost {margin: 20px 0;}
    article.staffPost .accordionContent {float:left; clear: left;}
-   div.staffTitle {background: rgb(256, 256, 256); background: rgba(256, 256, 256, 0.2); min-height: 150px; padding-left: 5px;; }
+   article.staffPost section.imageBox {background: rgb(256, 256, 256); background: rgba(256, 256, 256, 0.2); padding: 10px 10px 40px; margin: 0 50px; }
+   article.staffPost section.imageBox img {display: block; margin: 0 auto;}
+   div.staffTitle {background: rgb(256, 256, 256); background: rgba(256, 256, 256, 0.2); min-height: 200px; padding-left: 20px; }
    div.staffTitle h4 {margin: 0; padding: 0; line-height: 25px;}
    article.staffPost p {font-size: .9em;}
 
@@ -581,14 +604,17 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* =============================================================================
    Footer
    ========================================================================== */
-	footer {background: #2f373a;}
+	footer[role="contentinfo"] {background: #2f373a; padding: 30px 0; color: #c9bfb0 !important;}
 
-	div.footerbg footer {background: #2f373a; color: #c9bfb0;padding: 30px;}
+	div.footerbg footer {background: #2f373a; padding: 30px;}
 
 	#content-info { clear: both; position: relative; }
 	#content-info > .container { padding: 0 0 1.5em; }
 
-	#content-info ul.menu { margin: 0 0 24px; padding: 0; list-style-type: none; }
+	#content-info .footerNav ul.menu { margin: 0 0 24px; padding: 0; list-style-type: none; }
+	#content-info .footerNav ul.menu li, #content-info .footerSocial a {display: inline; padding: -0 10px; font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; font-weight: 700;}
+	#content-info .footerSocial a.twitterLink {padding-left: 30px; background: url(images/twitter2.png) left center no-repeat;}
+	#content-info .footerSocial a.facebookLink {padding-left: 30px; background: url(images/facebook.png) left center no-repeat;}
 
 	#content-info p.copy small { font-size: 1em; }
 
@@ -615,8 +641,12 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* =============================================================================
    Search form
    ========================================================================== */
-
-	#searchform #s { padding: 5px; }
+    #searchform {margin-top: 20px; }
+	#searchform #s { padding: 5px; height: 38px; background: rgba(255, 255, 255, .5); color: black; border: none; box-shadow: none; outline: none; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; -o-border-radius: 0;}
+	#searchform #s::-webkit-input-placeholder {color:rgb(47, 55, 58);}
+	#searchform #s:-moz-placeholder {color:rgb(47, 55, 58);}
+	input#searchsubmit {height: 38px; margin: 0; font-size: 19px !important; background: rgba(47, 55, 58, .5); font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; border: none; box-shadow: none; outline: none; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; -o-border-radius: 0;}
+	input#searchsubmit:hover {color: #AF9C71; background: rgb(47, 55, 58);}
 	.floater { position:fixed; top: 0px; z-index:999;}
 
 /* =============================================================================
@@ -647,7 +677,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	/*Main Styles*/
 	#content {margin-top: 0px;}
 	.headerbg, div.footerbg {margin:0;}
-	.headerbg {background-image: url('../img/headerMobilebg.jpg'), margin-bottom: 10px;}
+	.container[role="header"] {background-image: url('images/headerMobilebg.jpg'); background-size: 100% auto; background-repeat: repeat-y; margin-bottom: 0px;}
 	nav#mobileMenu {display: block;}
 	#nav-main {display: none;}
 	div#breadcrumb-menu {display: none;}
@@ -792,7 +822,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	   clear: both;
    }
    li.comment header {
-   		margin-bottom: 15px;
+   		margin-bottom: 30px;
    	}
    li.comment header cite {
 	   font-style: normal;

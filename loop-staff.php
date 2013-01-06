@@ -20,9 +20,13 @@ Loop for the Staff Page
 	<!-- Print out the Markup for each staff member -->
 	<article class="twelve columns staffPost <?php echo $r_class;?>" id="post-<?php the_ID(); ?>">
 		<div class="accordionButton row">
-			<div class="one columns"></div>
-			<!-- Display the image for the Staff Memeber -->
-			<div class="two columns"><?php the_post_thumbnail (); ?></div>
+<!-- 			<div class="one columns"></div>
+ -->			<!-- Display the image for the Staff Memeber -->
+			<div class="four columns">
+				<section class="imageBox">
+					<?php the_post_thumbnail (); ?>
+				</section>
+			</div>
 		
 			<!-- Populate our Accordion Button with basic info about the Staff member -->
 			<div class="staffTitle eight columns last">

@@ -299,36 +299,6 @@ set_transient('presstrends_data', $data, 60*60*24);
 }}
 add_action('admin_init', 'presstrends');
 
-//The News Excerpt
-function the_news_excerpt($words = 40, $link_text = 'Read More &#187;', $allowed_tags = 'all', $container = 'div', $smileys = 'no' )
-{
-global $post;
-
-  if ( $allowed_tags == 'all' ) $allowed_tags = '<a>,<b>,<strong>,<ul>,<ol>,<li>,<span>,<blockquote>,<img>';
-
-  $text = preg_replace('/\[.*\]/', '', strip_tags($post->post_content, $allowed_tags));
-  $text = explode(' ', $text);
-  $tot = count($text);
-  $i = "";
-  $output ="";
-
-  for ( $i=0; $i<$words; $i++ ) : $output .= $text[$i] . ' '; endfor;
-
-  if ( $smileys == "yes" ) $output = convert_smilies($output);
-
-  ?><p><?php echo force_balance_tags($output) ?><?php if ( $i < $tot ) : ?> ...<?php else : ?></p><?php endif; ?>
-  <?php if ( $i < $tot ) :
-    if ( $container == 'p' || $container == 'div' ) : ?></p><?php endif;
-    if ( $container != 'plain' ) : ?><<?php echo $container; ?> class="more"><?php if ( $container == 'div' ) : ?><p><?php endif; endif; ?>
-
-  <a href="<?php the_permalink(); ?>" class="more" title="<?php echo $link_text; ?>"><?php echo $link_text; ?></a><?php
-
-  if ( $container == 'div' ) : ?></p><?php endif; if ( $container != 'plain' ) : ?></<?php echo $container; ?>><?php endif;
-
-  if ( $container == 'plain' || $container == 'span' ) : ?></p>
-  <?php endif;
-  endif;}
-
 // Add Circle of Hope logos in appropriate places
 add_action('admin_head', 'custom_admin_links');
 
@@ -342,7 +312,7 @@ function custom_admin_links() {
             <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://docs.google.com/document/d/1q_-0ETpcTWpU5jLFUxGeyCrv5snKur1sN_KiMjSKKKc/edit" target="blank">Style Guide</a></li>
             <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://docs.google.com/document/d/1KxqxyAE4jRQZOsNHCKSw8eSlK3d0yY-FOlzIdDFf0cI/edit" target="blank">Basic User Guide</a></li>
             <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://docs.google.com/document/d/1c7ZdYLDT_xyMrmUmtU77LY0ItkO7w2mpB-Xleb5SSzo/edit" target="blank">Admin User Guide</a></li>
-            <li style="display: inline; margin: 0px 10px 10px"><a class="button medium">Developer Guide</a></li>
+            <li style="display: inline; margin: 0px 10px 10px"><a class="button medium" href="https://github.com/jsumnersmith/coh-theme">Theme on Github</a></li>
           </ul>
       </section>';
 }
@@ -351,9 +321,14 @@ function my_custom_login_logo()
 {
     echo '
       <style  type="text/css">
+        h1 {
+          border-bottom: none !important;
+        }
         h1 a {
           background-image:url('.get_bloginfo('template_directory').'/images/logo.png)  !important;
-          background-size: 100px 80px !important;}
+          background-size: 100px 80px !important;
+          height: 80px !important;
+          }
           </style>';
 }
 add_action('login_head',  'my_custom_login_logo');

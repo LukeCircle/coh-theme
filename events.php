@@ -52,7 +52,7 @@ Template Name: Events
         <p class="eventsMore"><a href="../featured-events">See all featured events</a></p>
 
       <section class="twelvecol">
-        <?//Not sure what we're getting here here ?>
+        <?//Call to the Page's content where a shortcode is sitting for us to grab the google calendar ?>
           <?php /* Start loop */ ?>
           <?php while (have_posts()) : the_post(); ?>
             <?php the_content(); ?>

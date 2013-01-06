@@ -21,7 +21,7 @@ Loop for the Artist links page
     			<div>
   					<?php /* Start loop */ ?>
   					  <?php $r_count = 1; //Initiate counter var?>
-  					  <?php $args = array('post_type' => 'customLink', 'posts_per_page' => 50, 'linkcategories' => 'artists-2' );
+  					  <?php $args = array('post_type' => 'customLink', 'posts_per_page' => 50, 'linkCategories' => 'artists-2' );
   						  $loop = new WP_Query( $args );
   						  while ( $loop->have_posts() ) : $loop->the_post(); ?>
   						 	<?php //Start our count and add a close to a div after the fourth item

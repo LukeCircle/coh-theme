@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 		<!-- Row for main content area -->
-		<div id="content" class="eight columns" role="main">
+		<div id="content" class="twelve columns" role="main">
 	
 			<div class="post-box">
 				<h1><?php _e('File Not Found', 'reverie'); ?></h1>
@@ -18,6 +18,5 @@
 
 		</div><!-- End Content row -->
 		
-		<?php get_sidebar(); ?>
 		
 <?php get_footer(); ?>

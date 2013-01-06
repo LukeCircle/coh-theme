@@ -7,7 +7,7 @@ The Loop for the Big C or "World Wide Connections Page"
   <?php //Iitiate count in order to add a class to ever fourth item in the loop ?>
     <?php $r_count = 1; ?>
   <?php //Go fetch the specific Link post type in the BigC taxonomy ?>
-    <?php $args = array('post_type' => 'customLink', 'posts_per_page' => 50, 'linkcategories' => 'bigC' );
+    <?php $args = array('post_type' => 'customLink', 'posts_per_page' => 50, 'linkCategories' => 'bigC' );
       $loop = new WP_Query( $args );
       while ( $loop->have_posts() ) : $loop->the_post(); ?>
         <?php //Here we'll actually count posts as we loop through them ?>

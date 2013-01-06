@@ -122,6 +122,8 @@ jQuery(document).ready(function ($) {
     $(".scrollable").scrollable();
   });
 
+  $("article[rel]").overlay();
+
   //RSS call for
   $('#dailyprayer').rssfeed('http://fulltextrssfeed.com/cohdailyprayer2012.wordpress.com/feed', {
      limit: 1,
