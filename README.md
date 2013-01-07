@@ -39,6 +39,7 @@ This architecture was first suggested by Ben Word, author of the Roots WP theme 
 The following third-party plugins are a necessary part of the site's archictecture and should be included in any WP install that uses this theme:
 
 - **Advanced Custom Fields**: This plugin provides a clean interface and implementation of the metaboxes for each of the custom post types.
+- **Advanced Excerpt**: This plugin provides an easy way to truncate posts in certain views.
 - **Google Calendar Events**: This plugin provides easy interaction with the Google Calendar API.
 - **MapPress Easy Google Maps**: This plugin provides simple Google Maps via shortcodes for various pages on the site.
 - **The Events Calendar**: This plugin provides a complete event management system and is used, on our website, for featured events.
