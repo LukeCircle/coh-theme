@@ -47,3 +47,6 @@ The following third-party plugins are a necessary part of the site's archictectu
 N.B. There are other plugins which have been used, and so unless you have a good reason to remove them, please don't.
 
 ##Contributing to This Code##
+Feel free to pull down this repository and fiddle with the theme files. If you need a copy of the database for your local environment, please contact Brent Saner (send Joel an email if you don't have Brent's email).
+
+The most important thing to know about the production server is that your code should never attempt to fiddle with the server's .htaccess file.
