@@ -17,25 +17,31 @@ These custom post types are the MODELS for the data which is eventually sent to 
 
   The metadata for this post type include: (1) Address and (2) Map shortcode from the Mapit plugin
 
+
 - **Mission/Compassion Teams**: These display as part of the list VIEW in either compassion.php/loop-compassion.php or mission.php/loop-mission.php and as individual team pages in the single.php/loop-single.php VIEW.
 
   The metadata for this post type include: (1) Team Leader, (2) Team leader email, (3) Link to team website, and (4) Social Media accounts to create a "mini-stream" of their posts
+
 
 - **Stories**: (Specifically for the 100 Stories initiative). These display as part of the list VIEW in stories.php/loop-stories.php only.
 
   The metadata for this post type include: None
 
+
 - **Look/Listen**: This post type allows for either listing an audioblog or linking youtube videos to be embedded in a pop-out. These display as part of the list VIEW in lookAndListen.php/loop-lookAndListenAudio.php/loop-lookAndListenVideo.php only.
 
   The metadata for this post type include: EITHER (1) link for Audioblog or (2) embed code for YouTube video
 
-- **Expressions**:  (This data type includes Circle Thrift, Circle Counseling, etc.) These display as part of the list VIEW in partners.php/loop-partners.php only.
-
-  The metadata for this post type include: (1) Link to Partner/"Expressions" website.
 
 - **Expressions**:  (This data type includes Circle Thrift, Circle Counseling, etc.) These display as part of the list VIEW in partners.php/loop-partners.php only.
 
   The metadata for this post type include: (1) Link to Partner/"Expressions" website.
+
+
+- **Expressions**:  (This data type includes Circle Thrift, Circle Counseling, etc.) These display as part of the list VIEW in partners.php/loop-partners.php only.
+
+  The metadata for this post type include: (1) Link to Partner/"Expressions" website.
+
 
 - **Staff Profiles**: These display as part of the list VIEW in staff.php/loop-staff.php and as a scrollable list at the foot of the whoWeAre.php/loop-whoWeAre.php.
 
