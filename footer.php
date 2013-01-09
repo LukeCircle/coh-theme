@@ -18,20 +18,7 @@
 				</div>
         <div class="three columns">
           <section class="bug-button">
-            <a rel="#bug-reporter" class="button twelve columns">Report a Bug</a>
-            <div class="simpleOverlay overlayFooter" id="bug-reporter">
-              <form method="post" action="site-local_report.php">
-                <em>Note: <strong>all fields</strong> are required.</em>
-                <strong>Issue Summary:</strong>
-                  <br><input name="summary" type="text" required="required" placeholder="Please provide a short description of the issue" size="55"><br>
-                <br>
-                <strong>Full description:</strong><br>
-                <textarea name="description" required="required" rows="8" cols="53"></textarea><br>
-                <br>
-                <input type="submit" value="Submit" class="button">
-                <input type="reset" value="Clear" class="button">
-              </form>
-            </div>
+            <a href="feedback.html" class="button" target="_blank" onclick="window.open(this.href,this.target,'width=500,height=300,scrollbars=yes');return false;">
           </section>
         </div>
 				<?php //wp_nav_menu(array('theme_location' => 'utility_navigation', 'container' => false, 'menu_class' => 'eight columns footer-nav')); ?>
