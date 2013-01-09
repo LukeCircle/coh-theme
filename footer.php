@@ -18,7 +18,7 @@
 				</div>
         <div class="three columns">
           <section class="bug-button">
-            <a href="../feedback.html" class="button" target="_blank" onclick="window.open(this.href,this.target,'width=500,height=300,scrollbars=yes');return false;">
+            <a href="../feedback.html" class="button" target="_blank" onclick="window.open(this.href,this.target,'width=800,height=600,scrollbars=yes');return false;">
               Report a Bug
             </a>
           </section>
