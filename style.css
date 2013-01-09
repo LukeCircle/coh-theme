@@ -535,7 +535,8 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	article.lookAndListenPost {padding: 20px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); margin: 10px; text-align: center; cursor: pointer; text-decoration: none; min-height: 340px;}
 	a.lookAndListenLink{text-decoration: none;}
 	div.simpleOverlay {display:none; padding: 30px; background: #000; z-index: 999;}
-	div.simpleOverlay .close {background-image:url(images/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:33px; width:33px;}
+	div.simpleOverlay.overlayFooter {background: rgb(256, 256, 256);background: rgba(0, 0, 0, 0.5); top: 10% !important; left: 35% !important;}
+  div.simpleOverlay .close {background-image:url(images/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:33px; width:33px;}
 
 /* =============================================================================
    Links Scroller --> This can only be used once per page
