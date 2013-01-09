@@ -89,7 +89,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   ul.sub-menu li > ul.sub-menu {display: none;}
   ul.nav-bar > li.has-flyout > a:first-child::after {border-color: rgba(175, 156, 113, .5) transparent transparent transparent;}
   ul.flyout li, .nav-bar li ul li {border-left: 3px solid rgb(47, 55, 58);}
-      /* Legacy Navigation Code 
+      /* Legacy Navigation Code
     	.nav-main {height: auto;}
     	.nav-main ul {font-family: "Open Sans Condensed","Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; position: relative;  font-weight: 700; list-style: none; margin: 0 auto 16px auto; padding: 0; text-align: left; float: left; width: 100%;}
     	.nav-main ul li { float: right; margin: 0; *zoom: 1; }
@@ -240,6 +240,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	div.midbg h2 {text-align: center; padding: 0; margin: 5px 0;}
 
 	section.event {padding:10px 0;}
+  .innerEvent {padding: 5px;}
 
 	div.tweets h3 {text-align: center; display: block; margin: 0 auto; text-transform: lowercase; width: 200px; padding-left: 10px; background: url(../img/twitter.png) left 65% no-repeat;}
 	div.tweets h3 a {text-decoration: none; color: #2f373a; padding-left: 15px;}
@@ -283,7 +284,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* =============================================================================
 	Convictions Page
    ========================================================================== */
-	article.convictionsPost {display: block; line-height:30px; text-align: center; padding: 0 5px; margin: 5px 0; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
+	article.convictionsPost p {display: block; line-height:30px; min-height: 80px !important; text-align: center; padding: 0 5px; margin: 5px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); }
 	a article.convictionsPost  h3  {color: #2f373a; }
 	h3.convictionsName {margin-top: 0; margin-bottom: 0;}
 
@@ -327,7 +328,10 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
    ========================================================================== */
    	div.whoWeArebg {background: rgba(92, 92, 92, 0.2); margin: 0px -25px 30px; padding: 20px 0;}
 	div.whoWeArebg h2 {text-align: center; padding: 0; margin: 5px 0; text-decoration: none;}
-	div.lastwhoWeAre {margin: 30px -25px 0;}
+	div.lastwhoWeAre {margin: 30px 0 -30px;}
+  div.lastwhoWeAre a.linksLink {width: 190px;}
+  div.lastwhoWeAre article.lookAndListenPost {margin: 5px;}
+  div.lastwhoWeAre .scrollable {width: 90%; height: 345px; margin-bottom: 30px;}
 
 	div.whoWeArebg p {line-height: .9em; padding: 20px; min-height: 25px;}
 	div.whoWeArebg a {text-decoration: none;}

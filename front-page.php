@@ -98,31 +98,33 @@
 
   				foreach($all_events as $post) {
   				setup_postdata($post);
- 
+
   			 	 if($r_count%6 == 0){ //Iterate through our counter variable so that we can add the appropriate classes
   					$r_class = 'last';
   					}else{
   					$r_class = '';
   			 		}
   					$r_count++; ?>
-      			
+
             <!-- Print out the markup for each event -->
             <section class="two columns <?php echo $r_class?> event">
-      				<!-- Wrap the whole event in a link to make it clickable -->
-              <a href="<?php the_permalink(); ?>">
-        				<!-- Get the Event's thumbnail -->
-                <div class="event-thumb">
-        					<?php the_post_thumbnail('thumbnail'); ?></a>
-        				</div>
-        				<!-- Grab the link to the Event -->
-                <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h4>
-        				
-                <!-- Grab the date for the Event -->
-                <div class="event-excerpt">
-        					<?php echo tribe_get_start_date( $post->ID, false, 'D, M j' ); ?>
+      				<div class="innerEvent">
+                <!-- Wrap the whole event in a link to make it clickable -->
+                <a href="<?php the_permalink(); ?>">
+          				<!-- Get the Event's thumbnail -->
+                  <div class="event-thumb">
+          					<?php the_post_thumbnail('thumbnail'); ?></a>
+          				</div>
+          				<!-- Grab the link to the Event -->
+                  <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h4>
 
-        				</div>
-              </a>
+                  <!-- Grab the date for the Event -->
+                  <div class="event-excerpt">
+          					<?php echo tribe_get_start_date( $post->ID, false, 'D, M j' ); ?>
+
+          				</div>
+                </a>
+              </div>
       			</section>
 			    <?php } //endforeach ?>
   				<?php wp_reset_query(); //Clear out the flue for other loops?>

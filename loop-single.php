@@ -22,18 +22,18 @@ Loop for Individual Posts
 			<div class="twelve columns">
 				<h1 class="congregationTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 			</div>
-			
+
 			<!-- Grab the Image for the Congregation -->
 			<div class="twelve columns last">
 				<?php the_post_thumbnail ('congregation_image'); ?>
 			</div>
-		
+
 		</header><!--end .row-->
 
 		 <div class="congregation">
-			
+
 			<div class="entry-content">
-				
+
 				<!-- Get the Directions to the specific Congregation -->
 				<div id="directions" class="row">
 					<div class="six columns">
@@ -56,11 +56,11 @@ Loop for Individual Posts
 					</div>
 				</div>
 
-				
+
 				<!--Events Feed for Congregations that calls from The Events Calendar Plugin-->
 		      	<div class="row darker">
 		      	<h2>Events at <?php the_title(); ?></h2>
-	      		<?php 
+	      		<?php
 	     			$r_count = 1; //Let's set our counter variable
 
 	     			//This is clunky, but we need to sift through the events and only grab the appropriate ones for each congregation
@@ -111,16 +111,16 @@ Loop for Individual Posts
 						</div>
 						<!-- A link to the Event -->
 						<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-						
+
 						<!-- The Date for the Event -->
 						<div class="event-excerpt">
 							<?php echo tribe_get_start_date( $post->ID, false, 'D, M j' ); ?>
 						</div>
 
 					</section>
-				
+
 					<?php } //endforeach ?>
-					<?php wp_reset_query(); //Making sure we clear the flue for other loops?> 
+					<?php wp_reset_query(); //Making sure we clear the flue for other loops?>
 				</div><!--end .row-->
 
 
@@ -128,7 +128,7 @@ Loop for Individual Posts
 				<!--Grab Any Related Blog Posts-->
 				<div class="row">
 				<h2>Related Blog Posts</h2>
-					
+
 				<?php /* Start loop for Related Stories */ ?>
 				<?php $z_count = 1; //Creating our Counter Variable?>
 
@@ -152,7 +152,7 @@ Loop for Individual Posts
 				$relatedLoop = new WP_Query( $relatedStories );
 				while ( $relatedLoop->have_posts() ) : $relatedLoop->the_post(); ?>
 
-				 	<?php //Let's iterate through the counter and add appropriate classes where necessary. 
+				 	<?php //Let's iterate through the counter and add appropriate classes where necessary.
 				 		if($z_count%4 == 0){
 						$z_class = 'three columns last';
 						}else{
@@ -165,9 +165,7 @@ Loop for Individual Posts
 				 	   <a href="<?php the_permalink(); ?>" class="<?php echo $z_class;?>">
 					   <article  id="post-<?php the_ID(); ?>" class="morePost">
 				        	<?php the_post_thumbnail ('grid_image'); ?>
-				      		<header>
-				        		<h3 class="entry-title"><?php the_title(); ?></h3>
-				        	</header>
+			        		<h3 class="entry-title"><?php the_title(); ?></h3>
 				      	</article>
 				      	</a>
 					<?php endwhile;  ?>
@@ -248,7 +246,7 @@ Loop for Individual Posts
 				<p><?php the_tags(); ?></p>
 
 	        <!--Stories Post Type Sidebar Fix | What the hell is this?-->
-	        	
+
 	        	<h3 class="related">Related Stories</h3>
 	        	<div class="row">
 		        	<?php
@@ -277,7 +275,7 @@ Loop for Individual Posts
 									{
 			 							 the_post_thumbnail ('bottom_image');
 									} else { ?>
-									<img src='<?php echo get_template_directory_uri(); ?>/images/morePosts.png'> 
+									<img src='<?php echo get_template_directory_uri(); ?>/images/morePosts.png'>
 									<?php }
 								?>
 								<h2><?php the_title(); ?></h2>

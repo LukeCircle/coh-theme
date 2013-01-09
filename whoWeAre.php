@@ -69,7 +69,7 @@ Template Name: Who We Are
 	while ( $loop->have_posts() ) : $loop->the_post(); ?>
 		<article class="six columns teamExcerpt" id="post-<?php the_ID(); ?>">
 		<h2><?php the_title();?></h2>
-		<p><?php the_news_excerpt(67, 'Learn More', all); ?></p>
+		<p><?php the_advanced_excerpt(67); ?></p>
 		</article>
 	<?php endwhile;  ?>
 

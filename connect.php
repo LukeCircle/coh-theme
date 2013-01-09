@@ -31,7 +31,7 @@ Template Name: Connect With Us*/
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>
   				<article class="twelve columns teamExcerpt" id="post-<?php the_ID(); ?>">
     				<h2><?php the_title();?></h2>
-              <p><?php the_news_excerpt(100); ?></p>
+              <p><?php the_advanced_excerpt(100); ?></p>
     				  <h3><a href="../cells">Find a Cell in your neighborhood</a></h3>
   				</article>
 			<?php endwhile;  ?>
@@ -80,7 +80,7 @@ Template Name: Connect With Us*/
 		  $loop = new WP_Query( $args );
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>
 			 	<article class="twelve columns teamExcerpt" id="post-<?php the_ID(); ?>">
-					<p><?php the_news_excerpt(100); ?></p>
+					<p><?php the_advanced_excerpt(100); ?></p>
 				</article>
 			<?php endwhile;  ?>
 </div>
