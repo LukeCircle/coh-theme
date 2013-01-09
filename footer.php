@@ -19,6 +19,8 @@
         <div class="three columns">
           <section class="bug-button">
             <a href="feedback.html" class="button" target="_blank" onclick="window.open(this.href,this.target,'width=500,height=300,scrollbars=yes');return false;">
+              Report a Bug
+            </a>
           </section>
         </div>
 				<?php //wp_nav_menu(array('theme_location' => 'utility_navigation', 'container' => false, 'menu_class' => 'eight columns footer-nav')); ?>
