@@ -51,3 +51,6 @@ N.B. There are other plugins which have been used, and so unless you have a good
 Feel free to pull down this repository and fiddle with the theme files. If you need a copy of the database for your local environment, please contact Brent Saner (send Joel an email if you don't have Brent's email).
 
 The most important thing to know about the production server is that your code should never attempt to fiddle with the server's .htaccess file.
+
+##Important Notes##
+When you're installing a fresh copy of the site (locally or remotely), be sure to do two things: (1) change the lines "site URL", "home", and "wp_FMP_skin" in the MYSQL table called "wp_options" and (2) change the Home link in the menu options of the WP backend to reflect the install's homepage URL. That's all you'll need when installing a fresh copy.
