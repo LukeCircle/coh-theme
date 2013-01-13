@@ -123,7 +123,6 @@ jQuery(document).ready(function ($) {
   });
 
   $("article[rel]").overlay();
-  $("a[rel]").overlay();
 
   //RSS call for
   $('#dailyprayer').rssfeed('http://fulltextrssfeed.com/cohdailyprayer2012.wordpress.com/feed', {
