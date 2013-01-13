@@ -29,7 +29,7 @@ Template Name: Deeper
  		<h3>The Daily Prayer Blog</h3>
    		<div id="dailyprayer">
    		</div>
-   		<a href="http://cohdailyprayer2012.wordpress.com" target="blank" class="dailyPrayer">
+   		<a href="http://circleofhopedailyprayer<?php echo date('Y'); ?>.wordpress.com" target="blank" class="dailyPrayer">
    		  <p>Visit the blog</p>
 	    </a>
     </div> <!-- /.row -->
