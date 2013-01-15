@@ -52,6 +52,9 @@ Template Name: Events
         <p class="eventsMore"><a href="../featured-events">See all featured events</a></p>
 
       <section class="twelvecol">
+        <p class="eventsMore" style="border-bottom: none; margin: 30px 0 -20px 0;">
+          <a href="https://www.google.com/calendar/embed?src=c400stklvh1c7kgmjb0g501kn4%40group.calendar.google.com&ctz=America/New_York" class="six columns centered" target="blank">See the full Google Calendar</a>
+        </p>
         <?//Call to the Page's content where a shortcode is sitting for us to grab the google calendar ?>
           <?php /* Start loop */ ?>
           <?php while (have_posts()) : the_post(); ?>
