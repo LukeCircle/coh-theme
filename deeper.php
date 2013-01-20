@@ -40,7 +40,7 @@ Template Name: Deeper
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.zrssfeed.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
-		$('#dailyprayer').rssfeed('http://fulltextrssfeed.com/cohdailyprayer2012.wordpress.com/feed', {
+		$('#dailyprayer').rssfeed('http://fulltextrssfeed.com/circleofhopedailyprayer<?php echo date('Y'); ?>.wordpress.com/feed', {
  		   limit: 1,
  	   		header: false,
  	   		date: false,

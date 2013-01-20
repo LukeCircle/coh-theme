@@ -198,7 +198,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
 
 	#more {padding: 30px 0px 30px 0px; }
-	.morePost .moreInner {float: left;clear:none; display: block; position: relative; overflow: hidden; padding: 7px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); min-height: 220px;}
+	.morePost .moreInner {float: left;clear:none; width: 100%; display: block; position: relative; overflow: hidden; padding: 7px; background: rgb(256, 256, 256);background: rgba(256, 256, 256, 0.2); min-height: 220px;}
 	.morePost h2 {font-size: 14px; line-height: 20px; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #2f373a; text-align: center;text-decoration: none; text-transform: uppercase;}
 	#more  a {text-decoration: none;}
 	#more img {display: block; margin: 0 auto;}
