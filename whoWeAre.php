@@ -31,11 +31,18 @@ Template Name: Who We Are
     </div><!-- /.twelve -->
 </div><!-- /.container[role="main"]-->
 
-<!--List our Convictions and link to Convitions Page-->
 <div class="container whoWeArebg">
-  <div class="row">
+ <!-- The Network Image -->
+<div class="row">
+<h2>Our Network</h2>
+  <img src="<?php echo get_template_directory_uri(); ?>/images/Network-image-white.png" style="display: block; margin: 0 auto">
+</div>
+</div><!--/.contatiner .whoWeArebg-->
+
+<!--List our Convictions and link to Convitions Page-->
+ <div class="row">
 		<a href="../convictions">
-			<h2>Our Convictions</h2>
+			<h2 style="text-align:center">Our Convictions</h2>
 		</a>
 
 		<?php /* Start loop */ ?>
@@ -57,38 +64,6 @@ Template Name: Who We Are
 		<?php endwhile;  ?>
 
   </div><!-- /.row-->
-</div><!--/.contatiner .whoWeArebg-->
-
-
-
-<!-- Pull the text from the Compassion Teams page and feature a random Team -->
-<div class="row">
-  <!-- The text from the Compassion Teams Page -->
-   <?php $args = array( 'pagename' => 'compassion-teams', );
-	$loop = new WP_Query( $args );
-	while ( $loop->have_posts() ) : $loop->the_post(); ?>
-		<article class="six columns teamExcerpt" id="post-<?php the_ID(); ?>">
-		<h2><?php the_title();?></h2>
-		<p><?php the_advanced_excerpt(67); ?></p>
-		</article>
-	<?php endwhile;  ?>
-
-
-  <!-- The randomly featured Team-->
-  <?php /* Start loop */ ?>
-	<?php $args = array( 'post_type' => 'team_page', 'posts_per_page' => 1, 'teams' => 'compassion-2', 'orderby' => 'rand' );
-	$loop = new WP_Query( $args );
-	while ( $loop->have_posts() ) : $loop->the_post(); ?>
-		<a href="<?php the_permalink(); ?>" class="teamLink">
-		<article class="six columns teamPage <?php echo $r_class;?>" id="post-<?php the_ID(); ?>">
-		<?php the_post_thumbnail ('grid_image'); ?>
-		<h3 class="teamName"><?php the_title(); ?></h3>
-		</article>
-		</a>
-	<?php endwhile;  ?>
-
-</div>
-
 
 <!--Make a scrollable list of Staff members see http://jquerytools.org/demos/scrollable/index.html-->
 <div class="container whoWeArebg lastwhoWeAre">
