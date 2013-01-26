@@ -150,7 +150,7 @@
      	</div><!-- end .row-->
 
     <div class="row ">
-			<section class="eight columns dailyPrayerBox">
+			<section class="columns dailyPrayerBox">
 		   	<h3>The Daily Prayer Blog</h3>
 		   	<div id="dailyprayer"></div>
 			</section>

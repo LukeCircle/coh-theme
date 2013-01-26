@@ -262,7 +262,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	section.dailyPrayerBox { margin: 0 12.5% 25px; height: auto;}
 	section.dailyPrayerBox h3 {text-align: center; margin-bottom: 0;}
 	section.dailyPrayerBox #dailyprayer {position: relative; float: left;}
-	#dailyprayer ul {margin: 0; min-height: 100px;}
+	#dailyprayer ul {margin: 0; min-height: 150px;}
 
 
 	h3.pmtitle {text-align:center;}
