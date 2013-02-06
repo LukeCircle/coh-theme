@@ -61,7 +61,7 @@
   				      <?php endwhile;  // End the loop ?>
 
             <!-- Add a Permanent Link to the Blog Page -->
-    				<a href="blog">
+    				<a href="/?page_id=8297">
               <div class="morePost two columns last">
                 <div class="moreInner">
     					    <h2 class="readMore">Read More Blog Posts</h2>
