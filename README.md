@@ -1,5 +1,9 @@
+
+
 #Circle of Hope WordPress Theme#
 This WordPress theme has been built specifically for the website http://circleofhope.net. It has been built using the Reverie theme framework, available [here](http://themefortress.com/reverie/ "Reverie"). Joel Smith lead the development of this theme which incorporated the designs put forward by Circle of Hope's Storytellers team in 2012.
+
+*This theme is no longer live in production*
 
 ##About This Theme's Architecture##
 ###Views and Loops###
